@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="QLKH.LimitedTextBox"
+             x:Name="ParentUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QLKH"
+             mc:Ignorable="d" 
+             d:DesignHeight="23" d:DesignWidth="120">
+    <Grid>
+        <TextBox x:Name="textBox" Text="{Binding Text, ElementName=ParentUser, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" DataObject.Pasting="textBox_Pasting" PreviewTextInput="textBox_PreviewTextInput"/>
+    </Grid>
+</UserControl>

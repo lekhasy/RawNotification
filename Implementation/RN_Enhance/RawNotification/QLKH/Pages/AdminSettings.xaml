@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="QLKH.Pages.AdminSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:models="clr-namespace:QLKH.Models"
+             xmlns:local="clr-namespace:QLKH"
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:toggle="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="567">
+    <UserControl.Resources>
+        <mui:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock Text="Auto Backup Setting" Grid.ColumnSpan="1" Margin="0,0,0,19" Style="{StaticResource Heading2}" />
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <TextBlock Text="Enable : " Width="100"/>
+                    <toggle:HorizontalToggleSwitch Name="Autobackup" IsChecked="{Binding AutoBackupEnable, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Visibility="{Binding ElementName=Autobackup, Converter={StaticResource BooleanToVisibilityConverter}, Path=IsChecked}">
+                    <StackPanel Style="{StaticResource HorizontalStackpanel}" >
+                        <TextBlock Text="Thời điểm" Width="100"/>
+                        <toolkit:TimePicker Name="TimePicker" BorderThickness="1" Width="150" Value="2015-10-26"/>
+                    </StackPanel>
+                    <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                        <TextBlock Text="Lặp lại : " Width="100"/>
+                        <toggle:HorizontalToggleSwitch Name="switch_Repeat" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource HorizontalStackpanel}"
+                                Visibility="{Binding ElementName=switch_Repeat, Path=IsChecked, Converter={StaticResource CollapseBolleanToVisibilityConverter}}">
+                        <StackPanel.Resources>
+                            <Style TargetType="CheckBox">
+                                <Setter Property="Margin" Value="10,0,0,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="Thứ : " Width="100"/>
+                        <CheckBox Margin="0" Name="cbx_t2">Thứ 2</CheckBox>
+                        <CheckBox Name="cbx_t3">Thứ 3</CheckBox>
+                        <CheckBox Name="cbx_t4">Thứ 4</CheckBox>
+                        <CheckBox Name="cbx_t5">Thứ 5</CheckBox>
+                        <CheckBox Name="cbx_t6">Thứ 6</CheckBox>
+                        <CheckBox Name="cbx_t7">Thứ 7</CheckBox>
+                        <CheckBox Name="cbx_cn">Chủ nhật</CheckBox>
+                    </StackPanel>
+                    
+                   
+                    <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                        <mui:ModernButton Click="AddButtonClicked" Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource AddFileIcon}"/>
+                        <mui:ModernButton Click="RemoveButtonClicked" Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource RecycleBinIcon}"/>
+                    </StackPanel>
+                    <ListView Name="listbox" ItemsSource="{Binding BackupList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description, UpdateSourceTrigger=Explicit}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

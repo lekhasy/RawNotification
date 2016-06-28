@@ -1,0 +1,15 @@
+﻿Các project trước đây đều sử dụng mô hình: Lỗi thì đưa lại cho user xử lí lỗi đó, nhưng cách đó có quá nhiều điểm yếu như:
+ - Các lỗi khi đưa ra cho user xem thì phải đưa ra một cách đồng bộ, trong khi xử lí bên trong là bất đồng bộ, dẫn đến việc phải xử lí đồng bộ hóa để hiển thị thông báo lỗi rất khó khăn, hiệu suất kém, code không mạch lạc.
+ - Tiếp theo là User có thể đang phải xử lí việc khác, đưa ra thông báo lỗi liên tục thật  quả là quá tồi tệ.
+
+Đó cũng là lí do cần thiết kế lại việc xử lí của project mỗi khi xảy ra lỗi.
+Hướng xử lí đang được lựa chọn là xử lí theo mô hình MVVM, có nghĩa là khi xảy ra lỗi, ta không thông báo gì tới người dùng hết. Người dùng phải binding thông tin lỗi ra một đối tượng ngoài giao diện.
+
+10:22 PM 3/1/2015:
+Project đã hoàn thiện xong phần server.
+việc còn lại trong phiên bản tiếp theo là:
+
+ - tổng hợp 4 solution lại làm một.
+ - thay thế giao thức TCP bằng WCF
+ - thay thế Linq to SQL bằng dapper.net
+ - loại bỏ phần token cho đơn giản và thiết kế lại phần client cho chỉnh tề.

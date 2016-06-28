@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="QLKH.Pages.UserManages.SearchEmployee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="540">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel MinWidth="200" Grid.Row="0">
+            <TextBlock Text="Tìm kiếm nhân viên" Style="{StaticResource Heading2}" />
+            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                <Label Width="88" Content="Từ khóa: " Margin="20,0,0,0" Target="{Binding ElementName=txt_search}" VerticalAlignment="Center"/>
+                <TextBox x:Name="txt_search" Width="200" Height="30"/>
+                <mui:ModernButton Click="Search_clicked" Style="{StaticResource ModernButtonGereralStyle}"
+                                  IconData="{StaticResource SearchIcon}"/>
+                <mui:ModernButton Click="Save_clicked" Style="{StaticResource ModernButtonGereralStyle}"
+                                  IconData="{StaticResource SaveIcon}"/>
+                <mui:ModernButton Click="Expand_clicked" Style="{StaticResource ModernButtonGereralStyle}" 
+                                  IsEnabled="{Binding ElementName=dg_Customer, Path=SelectedItem, Converter={StaticResource NullToEnableConverter}}" 
+                                  IconData="{StaticResource ExpandIcon}"/>
+            </StackPanel>
+            <ProgressBar Visibility="{Binding SearchProgresBarVisibility}" IsIndeterminate="True"/>
+        </StackPanel>
+        <CheckBox Name="CanEditRows" Visibility="Collapsed" IsChecked="True"/>
+        <DataGrid ItemsSource="{Binding SearchResult}" CanUserDeleteRows="{Binding CanDeleteRows}" CanUserAddRows="False"  x:Name="dg_Customer" AutoGenerateColumns="False" Grid.Row="1" >
+            <DataGrid.Columns>
+                <mui:DataGridTextColumn Header="ID" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked, Converter={StaticResource CollapseBolleanToVisibilityConverter}}" Binding="{Binding NhanVienID}"/>
+                <mui:DataGridTextColumn Header="CMND" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}" Binding="{Binding ConNguoi.CMND}"/>
+                <mui:DataGridTextColumn Header="Họ Tên" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}" Binding="{Binding ConNguoi.HoTen}"/>
+                <mui:DataGridCheckBoxColumn Header="Giới tính(nam)" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}" Binding="{Binding ConNguoi.GioiTinh}"/>
+                <mui:DataGridTextColumn Header="Phone" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}" Binding="{Binding ConNguoi.Phone}"/>
+                <mui:DataGridTextColumn Header="Phone 2" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}" Binding="{Binding ConNguoi.Phone2}"/>
+                <DataGridTemplateColumn Header="Ngày Sinh" IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding ConNguoi.NgaySinh}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <mui:DataGridTextColumn IsReadOnly="{Binding ElementName=CanEditRows, Path=IsChecked}" Header="Địa Chỉ" Binding="{Binding ConNguoi.DiaChi}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

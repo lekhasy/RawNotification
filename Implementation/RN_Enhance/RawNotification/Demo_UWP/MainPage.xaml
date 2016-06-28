@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="Demo_UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="#FF01A5E2"
+    mc:Ignorable="d">
+    <Grid Background="DodgerBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="SkyBlue" Name="headerGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="HambugerButton"
+                            FontFamily="Segoe MDL2 Assets"
+                            Content="&#xE700;"
+                            FontSize="32"
+                            Margin="0,0,0,0"
+                            Background="{Binding Background, ElementName=headerGrid}"
+                            Click="Button_Click" 
+                            VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" Name="txtHeading" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" Text="{Binding Header}" Foreground="White">
+            </TextBlock>
+        </Grid>
+        <SplitView Margin="0,0,0,0" Padding="0,0,0,0"
+            x:Name="SplitviewMenu"
+            DisplayMode="CompactOverlay" Grid.Row="1" CompactPaneLength="{Binding ActualWidth, ElementName=HambugerButton, Mode=OneWay}">
+            <SplitView.Pane>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Background="DeepSkyBlue" Foreground="White" SelectionMode="Single" x:Name="NavigationList" SelectionChanged="NavigationList_SelectionChanged" Grid.RowSpan="2">
+                        <ListBoxItem x:Name="HomeListBoxItem">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xEA8A;" FontSize="24" Margin="0,0,16,0"/>
+                                <TextBlock>
+                                	<Run Text="Home"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                    <Line Fill="White" Stroke="White"/>
+                    <ListBox Grid.Row="2" Name="list2" SelectionChanged="ListBox_SelectionChanged" Foreground="{Binding Foreground, ElementName=NavigationList}" Background="{Binding Background, ElementName=NavigationList}">
+                        <ListBoxItem x:Name="LogoutListBoxItem">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;" FontSize="24" Margin="0,0,16,0"/>
+                                <TextBlock>
+                                	<Run Text="Logout"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="SettingListBoxItem" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="24" Margin="0,0,16,0"/>
+                                <TextBlock>
+                                	<Run Text="Setting"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame x:Name="mainPageFrame"/>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>

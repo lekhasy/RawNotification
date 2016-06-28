@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="Notification_DB">
+  <DataContextMoniker Name="/Notification_DBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a60ed389-47bf-40ad-8999-0a3be5af504b" absoluteBounds="3.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Notification_DBDataContext/Device" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83160682-c42f-4fd8-b898-6151886881e0" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a1e9cb74-e3b7-4110-b7c5-065c861af135" absoluteBounds="3.5, 3.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/Notification_DBDataContext/Token" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2fe9e690-9602-49e7-9ea5-71504308eeaf" absoluteBounds="3.515, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d25137a-4dc2-4122-9926-9d47575d2b3c" absoluteBounds="6.25, 3.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/Notification_DBDataContext/DeviceNotification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6be39b6-1b57-4565-8da7-ca1498fea8b4" absoluteBounds="6.265, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b790ee3-e9e2-4618-9d0b-5b435a43c9ed" absoluteBounds="0.75, 7, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/Notification_DBDataContext/Notification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2c0afef-12c2-4153-b210-e21f2f6af5aa" absoluteBounds="0.765, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b24c7733-7d21-4046-b135-ad44e9c73a93" absoluteBounds="0.75, 1.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/Notification_DBDataContext/OperatingSystem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="faf29f32-d09a-4b84-a386-d7afc1acad1c" absoluteBounds="0.765, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37303f4b-0d58-43a2-93ee-182ab7749896" absoluteBounds="0.75, 4, 2, 1.193992513020834">
+      <DataClassMoniker Name="/Notification_DBDataContext/Receiver" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb81254f-f755-4412-b27c-4f3a5f41c28e" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65e538f7-4cef-4801-92c1-d778e99b4218" absoluteBounds="3.5, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/Notification_DBDataContext/ReceiverNotification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56a82796-f62d-4e6d-83db-87f561dc8866" absoluteBounds="3.515, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.53929768880208); (7.25 : 1.53929768880208); (7.25 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/Device/Device_DeviceNotification" />
+      <nodes>
+        <classShapeMoniker Id="a60ed389-47bf-40ad-8999-0a3be5af504b" />
+        <classShapeMoniker Id="2d25137a-4dc2-4122-9926-9d47575d2b3c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.04166666666667 : 1.91429768880208 : JumpStart); (3.20833333333333 : 1.91429768880208 : JumpEnd); (3.5 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/OperatingSystem/OperatingSystem_Device" />
+      <nodes>
+        <classShapeMoniker Id="b24c7733-7d21-4046-b135-ad44e9c73a93" />
+        <classShapeMoniker Id="a60ed389-47bf-40ad-8999-0a3be5af504b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.00091745577925); (3.125 : 3.62591745577925); (3.125 : 1.30089684440104); (3.5 : 1.30089684440104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/Receiver/Receiver_Device" />
+      <nodes>
+        <classShapeMoniker Id="37303f4b-0d58-43a2-93ee-182ab7749896" />
+        <classShapeMoniker Id="a60ed389-47bf-40ad-8999-0a3be5af504b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.62870748440004); (3.5 : 4.62870748440004)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/Receiver/Receiver_Token" />
+      <nodes>
+        <classShapeMoniker Id="37303f4b-0d58-43a2-93ee-182ab7749896" />
+        <classShapeMoniker Id="a1e9cb74-e3b7-4110-b7c5-065c861af135" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.53929768880208); (7.25 : 7.53929768880208); (7.25 : 5.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/ReceiverNotification/ReceiverNotification_DeviceNotification" />
+      <nodes>
+        <classShapeMoniker Id="65e538f7-4cef-4801-92c1-d778e99b4218" />
+        <classShapeMoniker Id="2d25137a-4dc2-4122-9926-9d47575d2b3c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.59699625651042); (3.5 : 7.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/Notification/Notification_ReceiverNotification" />
+      <nodes>
+        <classShapeMoniker Id="8b790ee3-e9e2-4618-9d0b-5b435a43c9ed" />
+        <classShapeMoniker Id="65e538f7-4cef-4801-92c1-d778e99b4218" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.19399251302083); (3.125 : 5.56899251302083); (3.125 : 7.14224612825521); (3.5 : 7.14224612825521)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Notification_DBDataContext/Receiver/Receiver_ReceiverNotification" />
+      <nodes>
+        <classShapeMoniker Id="37303f4b-0d58-43a2-93ee-182ab7749896" />
+        <classShapeMoniker Id="65e538f7-4cef-4801-92c1-d778e99b4218" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

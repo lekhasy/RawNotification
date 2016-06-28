@@ -1,0 +1,13 @@
+﻿- sau khi test xong nhớ bật lại phần lấy token khi hệ thống khởi động
+
+
+- sáng mai chỉnh lại phần communicate packet sao cho hợp lí.
+- chỉnh lại phần nhận thông báo của client
+	- Copy phần model qua
+	- Cách nhận thông báo trong background task với model mới
+- thêm quản lí khách hàng vào ngay và luôn còn kịp
+
+- Update lại phần TCP client của cả hai bên
+có thể bên server có lỗi bởi vì cấu trúc của chúng tương tự nhau trong khi bên client bị lỗi nhưng đã sửa xong
+ Update lại cả bên client thụ động nữa. có thể không lỗi nhưng vẫn phải xem qua lại.
+

@@ -1,0 +1,6 @@
+﻿Gộp chương 3, 4 lại làm 1 : thiết kế hệ thống
+Thêm demo trong phần kiểm thử của chương 5.
+
+Chương 2: sửa tên: cơ sở lý thuyết
+chia làm 2 phần:
+Thêm 1 phần Công nghệ được dùng.

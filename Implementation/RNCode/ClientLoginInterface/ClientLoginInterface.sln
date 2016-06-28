@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPServer", "..\RawNotification\TCPServer\TCPServer.csproj", "{CAC278F6-091E-4AC9-9E62-8EEA82E98F30}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ClientNetworkPacketSharedModels", "ClientNetworkPacketSharedModel\ClientNetworkPacketSharedModels.shproj", "{E3B5278A-6F18-4978-9DEA-EC9F52DA0AC6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RawNotification.SharedLiblary", "..\RawNotification\RawNotification.SharedLiblary\RawNotification.SharedLiblary.shproj", "{F1CB361F-F258-46C6-9ADE-55EDD18E174D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawNotification.ServerClient.ServerInterface", "..\RawNotification\RawNotification.ServerClient.ServerInterface\RawNotification.ServerClient.ServerInterface.csproj", "{CC7C671D-4595-4A64-9D59-4758BF84D0EC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestInterface.SharedModels", "..\RawNotificationServerInterface\TestInterface.SharedModels\TestInterface.SharedModels.shproj", "{DE0289B0-15FE-4EAF-9D83-543ED4AD4AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientLoginInterface", "ClientLoginInterface\ClientLoginInterface.csproj", "{5E09D636-AB52-4CC1-9AC2-5CB240FAB6D0}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\RawNotificationServerInterface\TestInterface.SharedModels\TestInterface.SharedModels.projitems*{de0289b0-15fe-4eaf-9d83-543ed4ad4aeb}*SharedItemsImports = 13
+		..\RawNotification\RawNotification.SharedLiblary\RawNotification.SharedLiblary.projitems*{5e09d636-ab52-4cc1-9ac2-5cb240fab6d0}*SharedItemsImports = 4
+		ClientNetworkPacketSharedModel\ClientNetworkPacketSharedModel.projitems*{5e09d636-ab52-4cc1-9ac2-5cb240fab6d0}*SharedItemsImports = 4
+		..\RawNotification\RawNotification.ServerClient.SharedModels\SharedModels.projitems*{cc7c671d-4595-4a64-9d59-4758bf84d0ec}*SharedItemsImports = 4
+		..\RawNotificationServerInterface\TestInterface.SharedModels\TestInterface.SharedModels.projitems*{cc7c671d-4595-4a64-9d59-4758bf84d0ec}*SharedItemsImports = 4
+		..\RawNotification\RawNotification.SharedLiblary\RawNotification.SharedLiblary.projitems*{f1cb361f-f258-46c6-9ade-55edd18e174d}*SharedItemsImports = 13
+		ClientNetworkPacketSharedModel\ClientNetworkPacketSharedModel.projitems*{e3b5278a-6f18-4978-9dea-ec9f52da0ac6}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAC278F6-091E-4AC9-9E62-8EEA82E98F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC278F6-091E-4AC9-9E62-8EEA82E98F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC278F6-091E-4AC9-9E62-8EEA82E98F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC278F6-091E-4AC9-9E62-8EEA82E98F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7C671D-4595-4A64-9D59-4758BF84D0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7C671D-4595-4A64-9D59-4758BF84D0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7C671D-4595-4A64-9D59-4758BF84D0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7C671D-4595-4A64-9D59-4758BF84D0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E09D636-AB52-4CC1-9AC2-5CB240FAB6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E09D636-AB52-4CC1-9AC2-5CB240FAB6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E09D636-AB52-4CC1-9AC2-5CB240FAB6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E09D636-AB52-4CC1-9AC2-5CB240FAB6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

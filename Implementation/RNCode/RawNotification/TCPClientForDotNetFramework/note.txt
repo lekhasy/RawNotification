@@ -1,0 +1,1 @@
+﻿- khi connect vào server, ta có thể gọi một phương thức để bật tính năng nhận dữ liệu một cách thụ động qua một stream thứ 2.

@@ -1,0 +1,19 @@
+﻿<mui:ModernDialog x:Class="QLKH.ErrorDialog"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  mc:Ignorable="d" 
+                  d:DesignHeight="300" d:DesignWidth="344"
+                  Title="{Binding ErrorTitle}">
+    <StackPanel>
+        <TextBlock Text="{Binding ErrorDescription}" TextWrapping="Wrap"/>
+        <StackPanel Orientation="Horizontal">
+            <ToggleButton Name="showdetail" Width="Auto" HorizontalAlignment="Left" Content="Show Detail"/>
+            <Button Click="OpenLLog_Click" IsEnabled="{Binding CanSeeLog, Mode=OneWay}" Content="Open log file" Width="Auto" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+            <Button IsEnabled="False" Content="Send log file to us" Width="Auto" HorizontalAlignment="Right" Margin="20,0,0,0"/>
+        </StackPanel>
+        <TextBox Text="{Binding ErrorDetailException}" Visibility="{Binding ElementName=showdetail, Path=IsChecked, Converter={StaticResource CollapseBolleanToVisibilityConverter}}" Height="228" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+    </StackPanel>
+</mui:ModernDialog>

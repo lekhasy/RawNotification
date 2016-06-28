@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="QLKH.Pages.UserManages.AddEmployee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:QLKH="clr-namespace:QLKH" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="385.444" d:DesignWidth="374">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel>
+                <Label Content="Thông tin nhân viên" FontWeight="Bold" FontSize="14.667" Width="Auto" />
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Họ Tên" Target="{Binding ElementName=txt_Name}" Style="{StaticResource FormLabel}"/>
+                    <QLKH:LimitedTextBox Limit="100" x:Name="txt_Name" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Địa chỉ" Target="{Binding ElementName=txt_DiaChi}" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="txt_DiaChi" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Giới Tính" Style="{StaticResource FormLabel}" />
+                    <RadioButton x:Name="rdb_Nam" Content="Nam" IsChecked="True"/>
+                    <RadioButton x:Name="rdb_Nữ" Content="Nữ" Margin="4,0,0,0"/>
+                </StackPanel>
+                <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Ngày Sinh"   Target="{Binding ElementName=datepicker1}" Style="{StaticResource FormLabel}"/>
+                    <DatePicker x:Name="datepicker1"/>
+                </StackPanel>
+                <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Phone 1"   Target="{Binding ElementName=txt_Phone}" Style="{StaticResource FormLabel}"/>
+                    <QLKH:PhoneTextBox x:Name="txt_Phone" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Phone 2"   Target="{Binding ElementName=txt_Phone}" Style="{StaticResource FormLabel}"/>
+                    <QLKH:PhoneTextBox x:Name="txt_Phone2" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="CMND" Style="{StaticResource FormLabel}"/>
+                    <QLKH:PhoneTextBox x:Name="txt_CMND" Limit="12" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Email" Style="{StaticResource FormLabel}"/>
+                    <QLKH:LimitedTextBox x:Name="txt_Email" Limit="50" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Chức vụ" Style="{StaticResource FormLabel}"/>
+                    <ComboBox ItemsSource="{Binding ChucVus}" 
+                                      SelectedIndex="0" 
+                                      DisplayMemberPath="TenChucVu"
+                                      SelectedValuePath="ChucVuID" 
+                                      x:Name="cbb_chucvu" 
+                                      Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Email" Style="{StaticResource FormLabel}"/>
+                    <PasswordBox Name="passwordbox" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <Button Click="Add_Button_Click" Content="Add" Margin="0,20,0,0" HorizontalAlignment="Left" Width="60" Height="30"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

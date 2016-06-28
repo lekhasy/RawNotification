@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="QLKH.Pages.GiftsManage.GiftManage_SearchGift"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="531">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Margin" Value="20,0,0,0"></Setter>
+                <Setter Property="Width" Value="88"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel MinWidth="200" Grid.Row="0">
+            <TextBlock Text="Tìm kiếm quà tặng" Style="{StaticResource Heading2}" />
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Từ ngày:"  VerticalAlignment="Center"/>
+                <DatePicker Name="datetime_from"/>
+                <Label  Content="Tới ngày: "  VerticalAlignment="Center"/>
+                <DatePicker Name="datetime_to"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                <Label Content="Lọc : "/>
+                <CheckBox Name="cbx_NotSend" VerticalAlignment="Center">Chưa gửi</CheckBox>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                <mui:ModernButton Click="SearchClicked" Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource SearchIcon}"/>
+                <mui:ModernButton Click="SaveClicked" Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource SaveIcon}"/>
+            </StackPanel>
+            <ProgressBar Visibility="{Binding SearchProgresBarVisibility}" IsIndeterminate="True"/>
+        </StackPanel>
+        <CheckBox Name="CanEditRows" Visibility="Collapsed" IsChecked="True"/>
+        <DataGrid ItemsSource="{Binding QuaTangs}" CanUserDeleteRows="{Binding CanDeleteRows}" CanUserAddRows="False"  x:Name="dg_Customer" AutoGenerateColumns="False" Grid.Row="1" >
+            <DataGrid.Columns>
+                <mui:DataGridTextColumn Header="ID" Binding="{Binding QuaTangID}"/>
+                <mui:DataGridTextColumn Header="Giá trị" Binding="{Binding GiaTri}"/>
+                <mui:DataGridCheckBoxColumn Header="Đã gửi" Binding="{Binding DaGui}"/>
+                <DataGridTemplateColumn Header="Ngày lên kế hoạch">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding NgayLenKeHoach}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <mui:DataGridTextColumn Header="ID NV phụ trách" Binding="{Binding NhanVien.NhanVienID}"/>
+                <mui:DataGridTextColumn Header="Tên NV phụ Trách" Binding="{Binding NhanVien.ConNguoi.HoTen}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

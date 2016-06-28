@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="76f84b5d-217f-43da-95bb-4c5988af4517" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:2695/RNClientService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="bf3f1cd6-671d-4c89-873c-080748d03ddc" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="61fb4246-2de7-4f25-adad-dea5934dabc3" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="80247530-4327-4c28-a4bb-c4c943b6f5be" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
+    <MetadataFile FileName="RawNotification.SharedModels.DBModels.xsd" MetadataType="Schema" ID="27fa70b8-9472-4cca-af21-d33eb9495041" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
+    <MetadataFile FileName="RawNotification.SharedModels.xsd" MetadataType="Schema" ID="3c2dfb61-07cc-48b6-91a7-eff43341d8ba" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

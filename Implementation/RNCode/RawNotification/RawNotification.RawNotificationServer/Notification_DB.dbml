@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Notification_DB" Class="Notification_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Notification_DB;User ID=sa" SettingsObjectName="RawNotification.RawNotificationServer.Properties.Settings" SettingsPropertyName="Notification_DBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Device" Member="Devices">
+    <Type Name="Device">
+      <Column Name="ReceiverNewID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="URI" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="OSID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Device_DeviceNotification" Member="DeviceNotifications" ThisKey="DeviceID" OtherKey="DeviceID" Type="DeviceNotification" />
+      <Association Name="OperatingSystem_Device" Member="OperatingSystem" ThisKey="OSID" OtherKey="OSID" Type="OperatingSystem" IsForeignKey="true" />
+      <Association Name="Receiver_Device" Member="Receiver" ThisKey="ReceiverNewID" OtherKey="NewID" Type="Receiver" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Token" Member="Tokens">
+    <Type Name="Token">
+      <Column Name="TokenCodeID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReceiverNewID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TokenCode" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Receiver_Token" Member="Receiver" ThisKey="ReceiverNewID" OtherKey="NewID" Type="Receiver" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DeviceNotification" Member="DeviceNotifications">
+    <Type Name="DeviceNotification">
+      <Column Name="ReceiverNotificationID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceNotificationID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Device_DeviceNotification" Member="Device" ThisKey="DeviceID" OtherKey="DeviceID" Type="Device" IsForeignKey="true" />
+      <Association Name="ReceiverNotification_DeviceNotification" Member="ReceiverNotification" ThisKey="ReceiverNotificationID" OtherKey="ReceiverNotificationID" Type="ReceiverNotification" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notification" Member="Notifications">
+    <Type Name="Notification">
+      <Column Name="NotificationID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NotificationContent" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Notification_ReceiverNotification" Member="ReceiverNotifications" ThisKey="NotificationID" OtherKey="NotificationID" Type="ReceiverNotification" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperatingSystem" Member="OperatingSystems">
+    <Type Name="OperatingSystem">
+      <Column Name="OSID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OSName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="OperatingSystem_Device" Member="Devices" ThisKey="OSID" OtherKey="OSID" Type="Device" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Receiver" Member="Receivers">
+    <Type Name="Receiver">
+      <Column Name="NewID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OldID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Receiver_Device" Member="Devices" ThisKey="NewID" OtherKey="ReceiverNewID" Type="Device" />
+      <Association Name="Receiver_Token" Member="Tokens" ThisKey="NewID" OtherKey="ReceiverNewID" Type="Token" />
+      <Association Name="Receiver_ReceiverNotification" Member="ReceiverNotifications" ThisKey="NewID" OtherKey="ReceiverNewID" Type="ReceiverNotification" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReceiverNotification" Member="ReceiverNotifications">
+    <Type Name="ReceiverNotification">
+      <Column Name="ReceiverNewID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NotificationID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiverNotificationID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Readed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ReceiverNotification_DeviceNotification" Member="DeviceNotifications" ThisKey="ReceiverNotificationID" OtherKey="ReceiverNotificationID" Type="DeviceNotification" />
+      <Association Name="Notification_ReceiverNotification" Member="Notification" ThisKey="NotificationID" OtherKey="NotificationID" Type="Notification" IsForeignKey="true" />
+      <Association Name="Receiver_ReceiverNotification" Member="Receiver" ThisKey="ReceiverNewID" OtherKey="NewID" Type="Receiver" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

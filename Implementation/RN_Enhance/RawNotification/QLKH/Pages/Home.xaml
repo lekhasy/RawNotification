@@ -1,0 +1,25 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:QLKH.Pages"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:QLKH="clr-namespace:QLKH" x:Class="QLKH.Pages.Home"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="432">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock Text="Thông tin nhanh" Style="{StaticResource Heading2}"/>
+                <mui:ModernButton  Height="38" Width="38" EllipseDiameter="30" Margin="0,20,0,0" HorizontalAlignment="Left" IconData="{StaticResource RefreshIcon}" Click="ModernButton_Click"/>
+                <StackPanel Orientation="Horizontal" Height="40">
+                    <TextBlock  Text="Số lượng khách hàng cần chúc mừng sinh nhật: " HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="tbl_soluong" Text="{Binding Num}" Margin="30,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <mui:ModernButton Command="mui:LinkCommands.NavigateLink" CommandParameter="/Pages/BirthDay.xaml" EllipseDiameter="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,0,0" IconData="{StaticResource RightArrowIcon}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

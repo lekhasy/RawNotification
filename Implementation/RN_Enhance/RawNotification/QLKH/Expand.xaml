@@ -1,0 +1,103 @@
+﻿<mui:ModernWindow x:Class="QLKH.Expand"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  xmlns:toggle="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
+                  xmlns:QLKH="clr-namespace:QLKH"
+                  mc:Ignorable="d" 
+                  d:DesignHeight="300" d:DesignWidth="388"
+                  Title="{Binding WindowTitle}"
+                  WindowStartupLocation="CenterScreen"
+                  LogoData="{StaticResource DefaultWindowsLogoIcon}"
+                  Style="{StaticResource BlankWindow}">
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Text="Người thân" Style="{StaticResource Heading2}" />
+            <StackPanel Style="{StaticResource HorizontalStackpanel}" HorizontalAlignment="Right">
+                <TextBlock Text="Thêm Người Thân : "/>
+                <toggle:HorizontalToggleSwitch Name="AddNTEnable" IsChecked="False" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackpanel}" Orientation="Vertical" Visibility="{Binding ElementName=AddNTEnable, Path=IsChecked, Converter={StaticResource CollapseBolleanToVisibilityConverter}}">
+                <StackPanel.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Width" Value="132"/>
+                    </Style>
+                    <Style x:Key="ContentWidth" TargetType="Control">
+                        <Setter Property="Width" Value="169"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel>
+                    <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                        <Label Content="Họ tên"/>
+                        <QLKH:LimitedTextBox Limit="100" x:Name="txt_HoTen_NT" Style="{StaticResource ContentWidth}"/>
+                    </StackPanel>
+                    <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                        <Label Content="Phone"/>
+                        <QLKH:PhoneTextBox x:Name="txt_Phone_NT" Style="{StaticResource ContentWidth}"/>
+                    </StackPanel>
+                    <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                        <Label Content="Quan Hệ"/>
+                        <ComboBox ItemsSource="{Binding LoaiQuanHes}" 
+                                      SelectedIndex="0"
+                                      DisplayMemberPath="TenQuanHe"
+                                      SelectedValuePath="LoaiQuanHeID" 
+                                      x:Name="cbb_quanhe"
+                                      Style="{StaticResource ContentWidth}"/>
+                    </StackPanel>
+                    <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                        <Label Content="Ngày Sinh" />
+                        <DatePicker x:Name="datetime_NT"/>
+                        <mui:ModernButton Click="AddNTClicked" Width="30" EllipseDiameter="25" Margin="30,0,0,0" IconData="{StaticResource PeopleIcon}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                <mui:ModernButton Click="ModernButton_Click"  IconData="{StaticResource RefreshIcon}" Style="{StaticResource ModernButtonGereralStyle}"/>
+                <mui:ModernButton Click="Button_Click" Margin="20,0,0,0"  IconData="{StaticResource SaveIcon}" Style="{StaticResource ModernButtonGereralStyle}"/>
+            </StackPanel>
+            <DataGrid Name="Dg_expand" ItemsSource="{Binding NguoiThans}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="Họ Tên" Binding="{Binding Path=ConNguoi.HoTen }"/>
+                    <DataGridTemplateColumn Header="Ngày sinh">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Path=ConNguoi.NgaySinh}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <mui:DataGridTextColumn Header="Phone" Binding="{Binding Path=ConNguoi.Phone}"/>
+                    <mui:DataGridComboBoxColumn
+                        x:Name="ComboboxColumn"
+                        Header="Quan Hệ"
+                        DisplayMemberPath="TenQuanHe"
+                        SelectedValuePath="LoaiQuanHeID"
+                        SelectedValueBinding="{Binding Path=LoaiQuanHeID}"
+                        />
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Text="Cuộc gọi" Style="{StaticResource Heading2}" Margin="0,20,0,0"/>
+            <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                <mui:ModernButton Click="RefreshCalls"  IconData="{StaticResource RefreshIcon}" Style="{StaticResource ModernButtonGereralStyle}"/>
+                <mui:ModernButton Click="SaveCalls" Margin="20,0,0,0"  IconData="{StaticResource SaveIcon}" Style="{StaticResource ModernButtonGereralStyle}"/>
+                <mui:ModernButton Click="MakeCall" Margin="20,0,0,0" IconData="{StaticResource MakeCallIcon}" Style="{StaticResource ModernButtonGereralStyle}"/>
+            </StackPanel>
+            <DataGrid Name="DG_CuocGoi" ItemsSource="{Binding CuocGois}" CanUserAddRows="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <mui:DataGridTextColumn Header="Gọi đi" Binding="{Binding ThoiDiemGoi}"/>
+                    <mui:DataGridTextColumn Header="Kết thúc" Binding="{Binding ThoiDiemKetThuc}"/>
+                    <mui:DataGridTextColumn Header="Ghi chú" Binding="{Binding GhiChu}"/>
+                    <mui:DataGridComboBoxColumn
+                        x:Name="ComboboxLoaiCuocGoi"
+                        Header="Loại Cuộc Gọi"
+                        DisplayMemberPath="TenLoaiCuocGoi"
+                        SelectedValuePath="LoaiCuocGoiID"
+                        SelectedValueBinding="{Binding Path=LoaiCuocGoiID}"/>
+                    <mui:DataGridTextColumn Header="Trạng Thái KH"  Binding="{Binding TragThaiKH}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </ScrollViewer>
+</mui:ModernWindow>

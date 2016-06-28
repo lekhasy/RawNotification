@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD16F1A3-FE3A-48F2-A728-B699AB2B58E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RawNotification.BusinessLogic</RootNamespace>
+    <AssemblyName>RawNotification.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseBL.cs" />
+    <Compile Include="BLImplements\DeviceBL.cs" />
+    <Compile Include="BLImplements\NotificationBL.cs" />
+    <Compile Include="BLImplements\ReceiverBL.cs" />
+    <Compile Include="BLInterfaces\IDeviceBL.cs" />
+    <Compile Include="BLInterfaces\INotificationBL.cs" />
+    <Compile Include="BLInterfaces\IReceiverBL.cs" />
+    <Compile Include="IBaseBL.cs" />
+    <Compile Include="IRawNotificationSender.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RawNotificationSender.cs" />
+    <Compile Include="RawNotificationSenders\IRNSender.cs" />
+    <Compile Include="RawNotificationSenders\RNSImplements\WNSRNSender.cs" />
+    <Compile Include="RawNotificationSenders\RNSImplements\WNSTokenAccess.cs" />
+    <Compile Include="RawNotificationSenders\RNSInterfaces\IWNSRNSender.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RawNotification.DataAccess\RawNotification.DataAccess.csproj">
+      <Project>{6df01cdd-97f3-4493-adcb-1b78a6345a5f}</Project>
+      <Name>RawNotification.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RawNotification.DotNetModels\RawNotification.DotNetModels.csproj">
+      <Project>{b9f07c94-aa7a-4daf-901a-9493b21e4b8c}</Project>
+      <Name>RawNotification.DotNetModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RawNotification.ServiceLib\RawNotification.ServiceLib.csproj">
+      <Project>{325e9432-8763-4b51-a83e-a3a94ea471db}</Project>
+      <Name>RawNotification.ServiceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

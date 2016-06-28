@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RawNotificationForServer.Communicate.ClientCommunicator" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAQAAAAAAAUAAAAAAAhAAAIAABAAAAgAAI=</HashCode>
+      <FileName>Communicate\ClientCommunicator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Communicate.FromClient.FromClientPacket" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAQAAAAAAAAA=</HashCode>
+      <FileName>Communicate\FromClient\FromClientPacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Communicate.FromClient.GetNotificationContentPacketData" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Communicate\FromClient\GetNotificationContentPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Communicate.FromClient.RegisterPacketData" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAACBAAAAAAAAAEAABAAA=</HashCode>
+      <FileName>Communicate\FromClient\RegisterPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Communicate.FromServer.FromServerPacket" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Communicate\FromServer\FromServerPacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.Notification_DBDataContext" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EiAAAQYAQBAgAAJAQAQAFAIAQCAcAAAABQkUAAgBAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.Device" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACgBSAABQCRARAUAEIABmiAGEAAQAAAAEgAAAAE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.Token" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgCAABSEAAQCBAQAEAAAABiCAEhAAAAAAAAAAAABE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.DeviceNotification" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAABBAAABggQCSAEAEIAByCACgAgAAABAEAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.Notification" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwpAABAAAAAAAAQAEQEAIBiGAAAABAABAAAAAgAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.OperatingSystem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABAgAAAAAQQAEAEAAB2iAAAAUAAAAAIyAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.Receiver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAAABAAQAAAAQQCEQkAKByCAQAAFAAAAAICADAEQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DBModel.ReceiverNotification" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAghCABSAABQCBAaQUAAAQByGAEwAAQABAAAAAAgAE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.DelegatesAndEnums.BadURIEventArgs" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DelegatesAndEnums\BadURIEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Liblary.MyBitConverter&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAAAAAAAAAAQAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Liblary\MyBitConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RawNotificationForServer.Liblary.ThreeRoomSync&lt;T&gt;" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAIIABAAAAAAAAAAAAAAAACAABCAAAAAAAAAAA=</HashCode>
+      <FileName>Liblary\ThreeRoomSync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Params.RawNotificationSenderParamForWindows10" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Params\RawNotificationSenderParamForWindows10.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Params.RawNotificationSenderParams" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Params\RawNotificationSenderParams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Params.RawNotificationServerParam" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Params\RawNotificationServerParam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.RawNotificationServer" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAACAAAAAAAABAAACAAAAAAAACIAAAAAAAgAA=</HashCode>
+      <FileName>RawNotificationServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Sender.RawNotificationSender" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EBAAEAAAABAQmACCAAQAAMIAAAAAEAiAAAAAMAAkAAA=</HashCode>
+      <FileName>Sender\RawNotificationSender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Sender.ServerCommunicateResponsePackets" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sender\ServerCommunicateResponsePackets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Sender.AddNotificationRequestResult" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Sender\ServerCommunicateResponsePackets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromClientPacket.AddLoginTokenPacketData" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromClientPacket\AddLoginTokenPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromClientPacket.AddNotificationPacketData" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>ServerCommunicate\FromClientPacket\AddNotificationPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromClientPacket.FromClientPacket" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromClientPacket\FromClientPacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.AddLoginTokenFSPacketData" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\AddLoginTokenFSPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.AddNotificationFSPacketData" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAACAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\AddNotificationFSPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.FromServerPacket" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\FromServerPacket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.ServerInfo" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAgAAAABAAAAAAAAAABAAAAAAAAAhAAAAAAABA=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\ServerInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.ServerCommunicate.ServerCommunicator" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAEAAIEIAAAAAAgAAAAgAIAAAQABAI=</HashCode>
+      <FileName>ServerCommunicate\ServerCommunicator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Windows10.Windows10RawNotificationSender&lt;T&gt;" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAAAAoAAAABAAAAMBAAAAAAAAA4AEAAAgAAAAAAAA=</HashCode>
+      <FileName>Windows10\Windows10RawNotificationSender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RawNotificationForServer.Windows10.Windows10TokenAccess" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAACEAAAAgAAAAEIAAAEIAAEAAAAIAABAAA=</HashCode>
+      <FileName>Windows10\Windows10TokenAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="RawNotificationForServer.Communicate.FromClient.FromClientPacketType" Collapsed="true">
+    <Position X="7.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Communicate\FromClient\FromClientPacket.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.Communicate.FromServer.ServerResult" Collapsed="true">
+    <Position X="0.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAQAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Communicate\FromServer\FromServerPacket.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.DBModel.OperatingSystemIDTemplates" Collapsed="true">
+    <Position X="9.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DBModel\OperatingSystemIDTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.Sender.ErrorName" Collapsed="true">
+    <Position X="3" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Sender\ServerCommunicateResponsePackets.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.Sender.PacketType" Collapsed="true">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACA=</HashCode>
+      <FileName>Sender\ServerCommunicateResponsePackets.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.ServerCommunicate.FromClientPacket.FromClientPacketType" Collapsed="true">
+    <Position X="7.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromClientPacket\FromClientPacket.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.ComminucateServerErrorType" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAAAAAAAFAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\AddNotificationFSPacketData.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.FromServerPacketType" Collapsed="true">
+    <Position X="1" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAACAAAAAIAACAAAAA=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\FromServerPacket.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RawNotificationForServer.ServerCommunicate.FromServerPacket.SenderServerErrorType" Collapsed="true">
+    <Position X="2.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAQBAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ServerCommunicate\FromServerPacket\ServerInfo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

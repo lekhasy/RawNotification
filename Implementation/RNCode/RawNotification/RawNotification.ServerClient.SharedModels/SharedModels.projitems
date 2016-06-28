@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b63022b5-5789-457b-b13e-5005624cc873</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedModels</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)NetworkPakcets\FromClient\AddNotificationPacketData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetworkPakcets\FromClient\FromClientPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetworkPakcets\FromServer\AddNotificationFSPacketData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetworkPakcets\FromServer\FromServerPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetworkPakcets\FromServer\ServerInfo.cs" />
+  </ItemGroup>
+</Project>

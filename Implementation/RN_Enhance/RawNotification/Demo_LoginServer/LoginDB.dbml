@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLKH" Class="LoginDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=QLKH;Integrated Security=True" SettingsObjectName="Demo_LoginServer.Properties.Settings" SettingsPropertyName="QLKHConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ConNguoi" Member="ConNguois">
+    <Type Name="ConNguoi">
+      <Column Name="ConNguoiID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Phone2" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Association Name="ConNguoi_KhachHang" Member="KhachHangs" ThisKey="ConNguoiID" OtherKey="ConNguoiID" Type="KhachHang" />
+      <Association Name="ConNguoi_NhanVien" Member="NhanViens" ThisKey="ConNguoiID" OtherKey="ConNguoiID" Type="NhanVien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="KhachHangID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TongGTGiaoDich" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ConNguoiID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoaiKhachHangID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ConNguoi_KhachHang" Member="ConNguoi" ThisKey="ConNguoiID" OtherKey="ConNguoiID" Type="ConNguoi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiCuocGoi" Member="LoaiCuocGois">
+    <Type Name="LoaiCuocGoi">
+      <Column Name="LoaiCuocGoiID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoaiCuocGoi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="NhanVienID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ConNguoiID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ConNguoi_NhanVien" Member="ConNguoi" ThisKey="ConNguoiID" OtherKey="ConNguoiID" Type="ConNguoi" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

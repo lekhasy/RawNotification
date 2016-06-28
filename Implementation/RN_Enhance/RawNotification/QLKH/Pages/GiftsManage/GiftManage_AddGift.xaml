@@ -1,0 +1,51 @@
+﻿<mui:ModernWindow x:Class="QLKH.Pages.GiftsManage.GiftManage_AddGift"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                  WindowStartupLocation="CenterScreen"
+             xmlns:QLKH="clr-namespace:QLKH"
+             xmlns:UserManage="clr-namespace:QLKH.Pages.UserManages"
+             xmlns:toggle="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             Style="{StaticResource BlankWindow}"
+             d:DesignHeight="300" d:DesignWidth="510.902">
+    <ScrollViewer>
+        <Grid Style="{StaticResource ContentRoot}">
+            <StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <Label Content="Giá trị : " Style="{StaticResource FormLabel}"/>
+                    <QLKH:IntegerTextBox x:Name="txtGiatri" Style="{StaticResource FormContentWidth}"/>
+                </StackPanel>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}" HorizontalAlignment="Right">
+                    <Label Content="Xem các khách hàng" Style="{StaticResource FormLabel}"/>
+                    <toggle:HorizontalToggleSwitch Name="SeeCustomer" IsChecked="True"/>
+                </StackPanel>
+                <DataGrid ItemsSource="{Binding KhachHangs}" CanUserAddRows="False" AutoGenerateColumns="False" CanUserDeleteRows="False" Visibility="{Binding ElementName=SeeCustomer, Path=IsChecked, Converter={StaticResource CollapseBolleanToVisibilityConverter}}">
+                    <DataGrid.Columns>
+                        <mui:DataGridTextColumn IsReadOnly="True" Header="ID" Binding="{Binding KhachHangID}"/>
+                        <mui:DataGridTextColumn IsReadOnly="True" Header="Họ Tên" Binding="{Binding ConNguoi.HoTen}"/>
+                        <mui:DataGridCheckBoxColumn IsReadOnly="True" Header="Giới tính(nam)" Binding="{Binding ConNguoi.GioiTinh}"/>
+                        <mui:DataGridTextColumn IsReadOnly="True" Header="Phone" Binding="{Binding ConNguoi.Phone}"/>
+                        <mui:DataGridTextColumn IsReadOnly="True" Header="Phone 2" Binding="{Binding ConNguoi.Phone2}"/>
+                        <DataGridTemplateColumn IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding ConNguoi.NgaySinh}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <mui:DataGridTextColumn Header="Địa Chỉ" IsReadOnly="True" Binding="{Binding ConNguoi.DiaChi}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}" HorizontalAlignment="Right">
+                    <Label Content="Xem nhân viên" Style="{StaticResource FormLabel}"/>
+                    <toggle:HorizontalToggleSwitch Name="SeeEmployee" IsChecked="True"/>
+                </StackPanel>
+                <UserManage:SearchEmployee x:Name="SearchEmployeeUC" Visibility="{Binding ElementName=SeeEmployee, Path=IsChecked, Converter={StaticResource CollapseBolleanToVisibilityConverter}}"/>
+                <Button Click="AddClicked" Content="Add" Margin="0,20,0,0" HorizontalAlignment="Left" Width="60" Height="30" RenderTransformOrigin="0.008,0.467"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</mui:ModernWindow>

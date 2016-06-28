@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                    xmlns:local="clr-namespace:QLKH.Converters">
+    <local:BooleanToVisibilityConverter x:Key="CollapseBolleanToVisibilityConverter"/>
+    <local:NullToEnableConverter x:Key="NullToEnableConverter"/>
+    <local:EmptyToEnableConverter x:Key="EmptyToEnableConverter"/>
+    <local:NullOrEmptyStringToBooleanCoverter x:Key="NullOrEmptyStringToBooleanCoverter"/>
+</ResourceDictionary>

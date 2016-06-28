@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="83f150a1-615d-450b-a1ef-63440f3edd96" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:2694/RNServerService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="27ec8109-0f20-44f6-81c9-26b922c919a4" SourceId="1" SourceUrl="net.tcp://localhost:2694/RNServerService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="ef0a85f8-2c2f-4ec8-95c9-6243543ce729" SourceId="1" SourceUrl="net.tcp://localhost:2694/RNServerService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0cd237f5-cfe8-4276-b1cc-1d8e9321a80d" SourceId="1" SourceUrl="net.tcp://localhost:2694/RNServerService/mex" />
+    <MetadataFile FileName="RawNotification.SharedServiceModels.xsd" MetadataType="Schema" ID="ba70e33a-b1fd-445d-9f5a-ca1cf743eeec" SourceId="1" SourceUrl="net.tcp://localhost:2694/RNServerService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="26ae9ea5-58d9-4c11-9b3b-5296fec1557d" SourceId="1" SourceUrl="net.tcp://localhost:2694/RNServerService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

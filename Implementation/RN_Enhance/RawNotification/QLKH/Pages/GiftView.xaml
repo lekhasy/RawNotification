@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="QLKH.Pages.GiftView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock>Các Quà Cần Gửi</TextBlock>
+                <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                    <mui:ModernButton Click="RefreshClicked" Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource RefreshIcon}"/>
+                    <mui:ModernButton Click="SaveClicked" Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource SaveIcon}"/>
+                </StackPanel>
+                <DataGrid ItemsSource="{Binding Result}" CanUserAddRows="False" AutoGenerateColumns="False" CanUserDeleteRows="False" VerticalAlignment="Stretch">
+                    <DataGrid.Columns>
+                        <mui:DataGridTextColumn Header="ID" Binding="{Binding QuaTangID}" IsReadOnly="True"/>
+                        <mui:DataGridTextColumn Header="Tên Quà" Binding="{Binding TenQua}"/>
+                        <mui:DataGridCheckBoxColumn Header="Đã gửi" Binding="{Binding DaGui}"/>
+                        <mui:DataGridTextColumn Header="Giá trị" Binding="{Binding GiaTri}" IsReadOnly="True"/>
+                        <mui:DataGridTextColumn Header="Tên Khách Hàng" Binding="{Binding KhachHang.ConNguoi.HoTen}" IsReadOnly="True"/>
+                        <mui:DataGridCheckBoxColumn Header="Giới Tính" Binding="{Binding KhachHang.ConNguoi.GioiTinh}" IsReadOnly="True"/>
+                        <mui:DataGridTextColumn Header="Phone" Binding="{Binding KhachHang.ConNguoi.Phone}" IsReadOnly="True"/>
+                        <mui:DataGridTextColumn Header="Phone 2" Binding="{Binding KhachHang.ConNguoi.Phone2}" IsReadOnly="True"/>
+                        <mui:DataGridTextColumn Header="Địa Chỉ" Binding="{Binding KhachHang.ConNguoi.DiaChi}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

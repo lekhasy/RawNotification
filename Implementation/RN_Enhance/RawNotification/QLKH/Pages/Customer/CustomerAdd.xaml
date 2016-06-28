@@ -1,0 +1,100 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:QLKH="clr-namespace:QLKH" x:Class="QLKH.Contents.CustomerAdd"
+             mc:Ignorable="d" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid Style="{StaticResource ContentRoot}">
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="132"/>
+            </Style>
+            <Style x:Key="ContentWidth" TargetType="Control">
+                <Setter Property="Width" Value="169"/>
+            </Style>
+        </Grid.Resources>
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel MinWidth="200" Orientation="Horizontal" >
+                    <StackPanel>
+                        <Label Content="Thông tin khách hàng" FontWeight="Bold" FontSize="14.667" Width="Auto" />
+                        <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Họ Tên" Target="{Binding ElementName=txt_Name}"/>
+                            <QLKH:LimitedTextBox Limit="100" x:Name="txt_Name" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Địa chỉ" Target="{Binding ElementName=txt_DiaChi}"/>
+                            <TextBox x:Name="txt_DiaChi" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Giới Tính"  />
+                            <RadioButton x:Name="rdb_Nam" Content="Nam" IsChecked="True"/>
+                            <RadioButton x:Name="rdb_Nữ" Content="Nữ" Margin="4,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Ngày Sinh"   Target="{Binding ElementName=datepicker1}"/>
+                            <DatePicker x:Name="datepicker1"/>
+                        </StackPanel>
+                        <StackPanel Visibility="Collapsed"  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Giá trị hợp đồng"   Target="{Binding ElementName=txt_Phone}"/>
+                            <QLKH:IntegerTextBox x:Name="txt_GTHopDong" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Phone 1"   Target="{Binding ElementName=txt_Phone}"/>
+                            <QLKH:PhoneTextBox x:Name="txt_Phone" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Phone 2"   Target="{Binding ElementName=txt_Phone}"/>
+                            <QLKH:PhoneTextBox x:Name="txt_Phone2" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="CMND" />
+                            <QLKH:PhoneTextBox x:Name="txt_CMND" Limit="12" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Email"/>
+                            <QLKH:LimitedTextBox x:Name="txt_Email" Limit="50" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="30,0,0,0">
+                        <Label HorizontalAlignment="Left" Width="172" Content="Thông tin người thân" FontSize="14.667" FontWeight="Bold"/>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Họ tên"/>
+                            <QLKH:LimitedTextBox Limit="100" x:Name="txt_HoTen_NT" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Phone"/>
+                            <QLKH:PhoneTextBox x:Name="txt_Phone_NT" Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Quan Hệ"/>
+                            <ComboBox ItemsSource="{Binding LoaiQuanHes}" 
+                                      SelectedIndex="0" 
+                                      DisplayMemberPath="TenQuanHe"
+                                      SelectedValuePath="LoaiQuanHeID" 
+                                      x:Name="cbb_quanhe" 
+                                      Style="{StaticResource ContentWidth}"/>
+                        </StackPanel>
+                        <StackPanel  Style="{StaticResource HorizontalStackpanel}">
+                            <Label Content="Ngày Sinh" />
+                            <DatePicker x:Name="datetime_NT"/>
+                            <mui:ModernButton Click="ModernButton_Click" Width="30" EllipseDiameter="25" Margin="30,0,0,0" IconData="{StaticResource PeopleIcon}"/>
+                        </StackPanel>
+                        <DataGrid x:Name="dg" CanUserDeleteRows="True" CanUserAddRows="False" ItemsSource="{Binding NguoiThans}" AutoGenerateColumns="False" Margin="0,4,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="146">
+                            <DataGrid.Columns>
+                                <mui:DataGridTextColumn Header="Quan Hệ" Binding="{Binding LoaiQuanHeID, Mode=TwoWay}"/>
+                                <mui:DataGridTextColumn Header="Họ Tên" Binding="{Binding ConNguoi.HoTen, Mode=TwoWay}"/>
+                                <mui:DataGridTextColumn Header="Phone" Binding="{Binding ConNguoi.Phone, Mode=TwoWay}"/>
+                                <mui:DataGridTextColumn Header="Ngày Sinh" Binding="{Binding ConNguoi.NgaySinh, Mode=TwoWay, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+                <Button Click="Button_Click" Content="Add" Margin="0,20,0,0" HorizontalAlignment="Left" Width="60" Height="30" RenderTransformOrigin="0.008,0.467"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

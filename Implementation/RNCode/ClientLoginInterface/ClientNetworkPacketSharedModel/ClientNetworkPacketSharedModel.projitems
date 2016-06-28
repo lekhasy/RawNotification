@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e3b5278a-6f18-4978-9dea-ec9f52da0ac6</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ClientNetworkPacketSharedModels</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)FromClient\FCLoginPacketData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FromClient\FromClientPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FromServer\FromServerPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FromServer\FSLoginPacketData.cs" />
+  </ItemGroup>
+</Project>
