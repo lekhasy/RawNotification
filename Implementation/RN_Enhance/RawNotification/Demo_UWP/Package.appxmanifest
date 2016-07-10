@@ -33,15 +33,15 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
+        <Extension Category="windows.backgroundTasks" Executable="Demo_UWP.exe" EntryPoint="RawNotification.DotNetCoreBGTasks.RawReceiverBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="pushNotification" />
+          </BackgroundTasks>
+        </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="RawNotification.DotNetCoreBGTasks.TimerRegisterBackgroundTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="timer" />
-          </BackgroundTasks>
-        </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="RawNotification.DotNetCoreBGTasks.RawReceiverBackgroundTask">
-          <BackgroundTasks>
-            <Task Type="pushNotification" />
           </BackgroundTasks>
         </Extension>
       </Extensions>
