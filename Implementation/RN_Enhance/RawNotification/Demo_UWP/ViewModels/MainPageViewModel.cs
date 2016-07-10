@@ -38,7 +38,9 @@ namespace Demo_UWP.ViewModels
             switch (id)
             {
                 case 0: {
-                        await RawNotification.DotNetCoreBL.RNAdapter.Logout();
+                        dialog.Content = "Do you want to keep notification data?";
+                        c = await dialog.ShowAsync();
+                        await RawNotification.DotNetCoreBL.RNAdapter.Logout((int)c.Id == 0? true : false);
                         Settings.LoginSuccessed = false;
                         _RootFrame.Navigate(typeof(LoginPage));
                     } break;

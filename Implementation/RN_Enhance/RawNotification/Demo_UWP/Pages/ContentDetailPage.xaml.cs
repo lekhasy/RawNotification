@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using RawNotification.DotNetCoreUserCodeModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -38,7 +39,7 @@ namespace Demo_UWP.Pages
                 textBlockContent.Text = serializer.BytesToObject(data);
             } catch(Exception ex)
             {
-
+                await new MessageDialog(ex.Message).ShowAsync();
             }
         }
 

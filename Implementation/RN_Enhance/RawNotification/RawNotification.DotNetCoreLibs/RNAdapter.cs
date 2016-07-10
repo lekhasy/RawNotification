@@ -22,10 +22,10 @@ namespace RawNotification.DotNetCoreBL
         public static void RegisterNotificationReceivedAsyncEvent(Action<NotificationInfoForRequesting> handler, int Id)
         {
             Action<NotificationInfoForRequesting> value;
-            if(ReceivedNotification.TryGetValue(Id, out value))
+            if (ReceivedNotification.TryGetValue(Id, out value))
             {
                 ReceivedNotification.Remove(Id);
-                ReceivedNotification.Add(Id,handler);
+                ReceivedNotification.Add(Id, handler);
             }
             else
             {
@@ -56,23 +56,36 @@ namespace RawNotification.DotNetCoreBL
         /// </summary>
         /// <param name="refreshTimerInterval">Interval for Background timer, it will send URI to server after this perioid of time, measure in minute. This value must be greater than 15</param>
         /// <param name="UserID">UserId that received from login server</param>
-        /// <param name="Token">TOken that have receceived from login server</param>
+        /// <param name="Token">Token that have receceived from login server</param>
         /// <returns></returns>
         public static async Task<BaseServiceResult> InitializeAsync(TimeSpan refreshTimerInterval, long UserID = 0, string Token = null)
         {
             if (Token != null)
             {
+                long prevuserId = -1;
+                try
+                {
+                    prevuserId = Settings.UserNewId;
+                }
+                catch { }
+
+                if (prevuserId != -1 && UserID != prevuserId)
+                {
+                    IDataProvider provider = new DataProvider();
+                    await (await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
+                }
                 Settings.UserNewId = UserID;
                 Settings.Token = Token;
             }
             try
             {
-                if (DotNetCoreBLCore.RNAdapterCore.NotificationReceived==null)
+                if (DotNetCoreBLCore.RNAdapterCore.NotificationReceived == null)
                 {
                     RNAdapterCore.NotificationReceived += FireNotificationReceivedEvent;
                 }
                 return await DotNetCoreBLCore.RNAdapterCore.SendDeviceInfoToServerAsync();
-            } finally
+            }
+            finally
             {
                 #region Xin quyền chạy nền
                 // yêu cầu quyền chạy Background từ user
@@ -86,20 +99,22 @@ namespace RawNotification.DotNetCoreBL
                 Utilities.RegisterTimerBackgroundTask(refreshTimerInterval);
             }
         }
-        
-        public static async Task Logout()
+
+        public static async Task Logout(bool keepData)
         {
             IDataProvider provider = new DataProvider();
             try
             {
-                await (await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
+                if (!keepData)
+                    await (await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
                 await provider.GetServiceProviderAsync().LogoutAsync(Utilities.GetDeviceIMEI(), Settings.UserNewId, Settings.Token);
-            } catch { }
+            }
+            catch { }
             finally
             {
                 Settings.Token = null;
                 Settings.UserNewId = 0;
-            }   
+            }
         }
     }
 }

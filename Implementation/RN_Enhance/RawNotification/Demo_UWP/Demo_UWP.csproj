@@ -98,6 +98,9 @@
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult1.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\Demo_LoginService\Demo_UWP.Demo_LoginService.BaseServiceResultOfstringlong.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\Demo_LoginService\RawNotification.SharedServiceModels.xsd">
       <SubType>Designer</SubType>
     </None>

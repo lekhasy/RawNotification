@@ -91,7 +91,7 @@ namespace Demo_UWP.Demo_LoginService {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.NetTcpBinding_ILoginServer)) {
-                return new System.ServiceModel.EndpointAddress("net.tcp://localhost:2696/Demo_LoginService");
+                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:2696/Demo_LoginService");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

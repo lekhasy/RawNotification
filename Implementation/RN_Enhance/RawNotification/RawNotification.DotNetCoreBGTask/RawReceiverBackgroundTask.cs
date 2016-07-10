@@ -29,7 +29,7 @@ namespace RawNotification.DotNetCoreBGTasks
             // Lưu ý: tất cả các phương thức async nào nằm ngoài khu này đều sẽ không thực hiện được
             string content = (taskInstance.TriggerDetails as Windows.Networking.PushNotifications.RawNotification).Content;
 
-            byte[] contentinBytes = await RNAdapterCore.NotificationReceivedAsync(content);
+            byte[] contentinBytes = RNAdapterCore.NotificationReceivedAsync(content);
 
             DotNetCoreUserCodes.UserCodes.OnNotificationReceivedInBGTask( new NotificationInfoForRequesting
                 { NotificationPreviewContent = contentinBytes } );

@@ -10,6 +10,8 @@ using RawNotification.Models.ClientCommunicatorModels;
 using RawNotification.Models.DBModels;
 using RawNotification.Models;
 using Windows.Networking.PushNotifications;
+using RawNotification.Models.ServerBusinessModels.Exceptions;
+using System.Threading;
 
 namespace RawNotification.DotNetCoreBLCore
 {
@@ -26,7 +28,9 @@ namespace RawNotification.DotNetCoreBLCore
             byte[] data = await (await DAProvider.GetNotifiInfoDataProviderAsync()).GetNotificationContentAsync(NotificationId);
             if (data == null)
             {
-                data = (await DAProvider.GetServiceProviderAsync().GetNotificationContentAsync(NotificationId, NotificationAccessKey, Settings.UserNewId, Settings.Token)).Data;
+                var result = (await DAProvider.GetServiceProviderAsync().GetNotificationContentAsync(NotificationId, NotificationAccessKey, Settings.UserNewId, Settings.Token));
+                data = result.Data;
+                result.FireMessageExceptionForServiceResult();
             }
             return data;
         }
@@ -51,7 +55,8 @@ namespace RawNotification.DotNetCoreBLCore
             {
                 var result = await DAProvider.GetServiceProviderAsync().AddDeviceAsync(Settings.UserNewId, GetDeviceInfo(_CurrentChannel), Settings.Token);
                 return result;
-            } catch (Exception)
+            }
+            catch (Exception)
             {
 
             }
@@ -64,33 +69,40 @@ namespace RawNotification.DotNetCoreBLCore
             return await Provider.GetAllPreviewContentAsync();
         }
 
-        private static async void _CurrentChannel_PushNotificationReceived(PushNotificationChannel sender, PushNotificationReceivedEventArgs args)
+        private static void _CurrentChannel_PushNotificationReceived(PushNotificationChannel sender, PushNotificationReceivedEventArgs args)
         {
             args.Cancel = true;
-            await NotificationReceivedAsync(args.RawNotification.Content);
+            NotificationReceivedAsync(args.RawNotification.Content);
         }
 
-        public static async Task<byte[]> NotificationReceivedAsync(string notifiGeneralInfoData)
+        private static object ReceiveNotificationLock = new object();
+        public static byte[] NotificationReceivedAsync(string notifiGeneralInfoData)
         {
-            JSONObjectSerializer<NotificationInfoForRequesting> serializer = new SharedLibs.JSONObjectSerializer<NotificationInfoForRequesting>();
-            var notifiinfo = serializer.StringToObject(notifiGeneralInfoData);
-            IDataProvider DAProvider = new DataProvider();
-            await (await DAProvider.GetNotifiInfoDataProviderAsync()).AddNotificationAsync(notifiinfo);
+            Monitor.Enter(ReceiveNotificationLock);
+          byte[] result = Task.Run<byte[]>(async () =>
+            {
+                JSONObjectSerializer<NotificationInfoForRequesting> serializer = new SharedLibs.JSONObjectSerializer<NotificationInfoForRequesting>();
+                var notifiinfo = serializer.StringToObject(notifiGeneralInfoData);
+                await (await DAProvider.GetNotifiInfoDataProviderAsync()).AddNotificationAsync(notifiinfo);
 
-            bool? isReadAlready = null;
-            try
-            {
-                isReadAlready = (await DAProvider.GetServiceProviderAsync().CheckIfNotificationReadAsync(notifiinfo.ReiceiverNotificationID)).Data;
-                
-            } catch
-            {
+                bool? isReadAlready = null;
+                try
+                {
+                    isReadAlready = (await DAProvider.GetServiceProviderAsync().CheckIfNotificationReadAsync(notifiinfo.ReiceiverNotificationID)).Data;
 
-            }
-            if (isReadAlready!=null && !isReadAlready.Value)
-            {
-                NotificationReceived?.Invoke(notifiinfo);
-            }
-            return notifiinfo.NotificationPreviewContent;
+                }
+                catch
+                {
+
+                }
+                if (isReadAlready != null && !isReadAlready.Value)
+                {
+                    NotificationReceived?.Invoke(notifiinfo);
+                }
+                return notifiinfo.NotificationPreviewContent;
+            }).Result;
+            Monitor.Exit(ReceiveNotificationLock);
+            return result;
         }
 
         internal static Device GetDeviceInfo(PushNotificationChannel channel)

@@ -21,13 +21,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://localhost:2696/Demo_LoginService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3708595d-7bd1-4c98-b89e-a0e51b104216" SourceId="1" SourceUrl="net.tcp://localhost:2696/Demo_LoginService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="eda36d19-8b08-4529-9e76-a5dd6ed74057" SourceId="1" SourceUrl="net.tcp://localhost:2696/Demo_LoginService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e903c4d-0dbb-4fd8-9dfc-d6ff13180144" SourceId="1" SourceUrl="net.tcp://localhost:2696/Demo_LoginService/mex" />
-    <MetadataFile FileName="RawNotification.SharedServiceModels.xsd" MetadataType="Schema" ID="3ec7124a-52de-4276-81fe-89f9b6a623c1" SourceId="1" SourceUrl="net.tcp://localhost:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3708595d-7bd1-4c98-b89e-a0e51b104216" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="eda36d19-8b08-4529-9e76-a5dd6ed74057" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e903c4d-0dbb-4fd8-9dfc-d6ff13180144" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="RawNotification.SharedServiceModels.xsd" MetadataType="Schema" ID="3ec7124a-52de-4276-81fe-89f9b6a623c1" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

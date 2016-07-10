@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using RawNotification.SharedLibs;
 using Windows.Storage;
@@ -36,6 +37,7 @@ namespace RawNotification.DotNetCoreDataProviders
 
         private List<T> _List = null;
 
+
         private async Task<List<T>> List()
         {
             if (_List == null)
@@ -46,9 +48,10 @@ namespace RawNotification.DotNetCoreDataProviders
                     {
                         _List = serializer.ReadObjectFromStream(stream);
                     }
-                } catch
+                }
+                catch
                 {
-                    return new List<T>();
+                    _List = new List<T>();
                 }
             }
             return _List;
@@ -131,10 +134,10 @@ namespace RawNotification.DotNetCoreDataProviders
             return result;
         }
 
-        public Task RemoveListData()
+        public async Task RemoveListData()
         {
-            this._List.Clear();
-            return SaveAsync();
+            (await List()).Clear();
+            await SaveAsync();
         }
 
         public async Task<IEnumerable<T>> GetIEnumrableAsync()

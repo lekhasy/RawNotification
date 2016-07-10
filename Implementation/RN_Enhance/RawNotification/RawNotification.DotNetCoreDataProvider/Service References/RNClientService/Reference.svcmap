@@ -21,14 +21,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://localhost:2695/RNClientService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://lekhasy.ddns.net:2695/RNClientService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="bfc0b252-c361-4d51-8c61-47bd2ddb7d23" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6e8bcf06-b2d3-433f-9a7a-9fbd8087b005" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="666e7eac-a3a9-4d19-89db-381d03054d9c" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
-    <MetadataFile FileName="RawNotification.SharedModels.DBModels.xsd" MetadataType="Schema" ID="c6c5aad3-463f-4336-8b9a-8f69c47623b0" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
-    <MetadataFile FileName="RawNotification.SharedServiceModels.xsd" MetadataType="Schema" ID="75f96697-517a-40de-b736-5b4bdd12e291" SourceId="1" SourceUrl="net.tcp://localhost:2695/RNClientService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="bfc0b252-c361-4d51-8c61-47bd2ddb7d23" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2695/RNClientService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6e8bcf06-b2d3-433f-9a7a-9fbd8087b005" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2695/RNClientService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="666e7eac-a3a9-4d19-89db-381d03054d9c" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2695/RNClientService/mex" />
+    <MetadataFile FileName="RawNotification.SharedModels.DBModels.xsd" MetadataType="Schema" ID="c6c5aad3-463f-4336-8b9a-8f69c47623b0" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2695/RNClientService/mex" />
+    <MetadataFile FileName="RawNotification.SharedServiceModels.xsd" MetadataType="Schema" ID="75f96697-517a-40de-b736-5b4bdd12e291" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2695/RNClientService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
