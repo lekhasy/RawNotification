@@ -92,6 +92,7 @@ namespace RawNotification.DotNetCoreBL
             IDataProvider provider = new DataProvider();
             try
             {
+                await (await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
                 await provider.GetServiceProviderAsync().LogoutAsync(Utilities.GetDeviceIMEI(), Settings.UserNewId, Settings.Token);
             } catch { }
             finally

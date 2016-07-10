@@ -131,6 +131,12 @@ namespace RawNotification.DotNetCoreDataProviders
             return result;
         }
 
+        public Task RemoveListData()
+        {
+            this._List.Clear();
+            return SaveAsync();
+        }
+
         public async Task<IEnumerable<T>> GetIEnumrableAsync()
         {
             return new List<T>(await List());

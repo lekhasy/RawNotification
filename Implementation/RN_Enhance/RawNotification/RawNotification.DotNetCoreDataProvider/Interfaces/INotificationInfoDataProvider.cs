@@ -15,5 +15,6 @@ namespace RawNotification.DotNetCoreDataProviders.Interfaces
         Task<byte[]> GetNotificationContentAsync(long NotificationID);
         Task<IEnumerable<NotificationInfoForRequesting>> GetAllPreviewContentAsync();
         Task<NotificationInfoForRequesting> GetPreviewInfoAsync(long notificationId);
+        Task RemoveAllData();
     }
 }

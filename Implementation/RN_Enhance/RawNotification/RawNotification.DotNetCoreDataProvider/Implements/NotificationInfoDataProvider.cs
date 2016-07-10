@@ -70,6 +70,12 @@ namespace RawNotification.DotNetCoreDataProviders.Implements
         {
             return Notifications.FirstOrDefault(n => n.NotificationId == notificationId);
         }
+
+        public async Task RemoveAllData()
+        {
+            await Notifications.RemoveListData();
+            await NotificationContents.RemoveListData();
+        }
     }
 }
 
