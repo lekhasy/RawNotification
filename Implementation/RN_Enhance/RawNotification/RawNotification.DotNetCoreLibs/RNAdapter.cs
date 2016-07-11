@@ -65,7 +65,7 @@ namespace RawNotification.DotNetCoreBL
                 long prevuserId = -1;
                 try
                 {
-                    prevuserId = Settings.UserNewId;
+                    prevuserId = Settings.PrevUserId;
                 }
                 catch { }
 
@@ -76,6 +76,7 @@ namespace RawNotification.DotNetCoreBL
                 }
                 Settings.UserNewId = UserID;
                 Settings.Token = Token;
+                Settings.PrevUserId = UserID;
             }
             try
             {

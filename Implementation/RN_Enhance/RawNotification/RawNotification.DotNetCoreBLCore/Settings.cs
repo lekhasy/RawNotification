@@ -20,6 +20,19 @@ namespace RawNotification.DotNetCoreBLCore
             }
         }
 
+
+        public static long PrevUserId
+        {
+            get
+            {
+                return GetValue<long>("RN_PrevUserId");
+            }
+            set
+            {
+                SetValue("RN_PrevUserId", value);
+            }
+        }
+
         public static long UserNewId
         {
             get
