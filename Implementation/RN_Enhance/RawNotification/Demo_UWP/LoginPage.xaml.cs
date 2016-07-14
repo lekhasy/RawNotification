@@ -42,5 +42,13 @@ namespace Demo_UWP
             if(Settings.UserName!=null)
             UserId.Text = Settings.UserName;
         }
+
+        private void PasswordBox_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                Button_Click(sender, e);
+            }
+        }
     }
 }

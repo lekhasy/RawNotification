@@ -6,9 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="#FF01A5E2"
+    Name="Page"
     mc:Ignorable="d">
-    <Canvas Name="layoutcanvas">
-        <Grid Background="DodgerBlue" Height="{Binding ElementName=layoutcanvas, Path=ActualHeight}"  Width="{Binding ElementName=layoutcanvas, Path=ActualWidth}">
+    <RelativePanel Name="rltvPanel" Width="{Binding ElementName=Page, Path=Width}" Height="{Binding ElementName=Page, Path=Height}">
+        <Grid RelativePanel.AlignLeftWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.AlignBottomWithPanel="True"
+              RelativePanel.AlignTopWithPanel="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -24,11 +28,11 @@
                             Content="&#xE700;"
                             FontSize="32"
                             Margin="0,0,0,0"
-                            Background="{Binding Background, ElementName=headerGrid}"
+                            Background="DodgerBlue"
                             Click="Button_Click" 
                             VerticalAlignment="Top"/>
-                <TextBlock Grid.Column="1" Name="txtHeading" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" Text="{Binding Header}" Foreground="White" Margin="154,0,74.755,0"/>
-                <Button Grid.Column="2" Margin="0,0,0,0" Content="Delete All" Click="BtnDeleteAll_Click"/>
+                <TextBlock Grid.Column="1" Name="txtHeading" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" Text="{Binding Header}" Foreground="White"/>
+                <Button Grid.Column="2" Margin="0,0,4,0" Content="Delete All" Click="BtnDeleteAll_Click" Background="Orange"/>
             </Grid>
             <SplitView Margin="0,0,0,0" Padding="0,0,0,0"
             x:Name="SplitviewMenu"
@@ -40,7 +44,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ListBox Background="DeepSkyBlue" Foreground="White" SelectionMode="Single" x:Name="NavigationList" SelectionChanged="NavigationList_SelectionChanged" Grid.RowSpan="2">
+                        <ListBox Background="#393939" Foreground="White" SelectionMode="Single" x:Name="NavigationList" SelectionChanged="NavigationList_SelectionChanged" Grid.RowSpan="2">
                             <ListBoxItem x:Name="HomeListBoxItem">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xEA8A;" FontSize="24" Margin="0,0,16,0"/>
@@ -75,42 +79,39 @@
                     <Frame x:Name="mainPageFrame"/>
                 </SplitView.Content>
             </SplitView>
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="VisualStateGroupe">
-                    <VisualState x:Name="VisualStatePhone">
-                        <VisualState.Setters>
-                            <Setter Target="SplitviewMenu.(SplitView.DisplayMode)" Value="Overlay"/>
-                        </VisualState.Setters>
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="0"/>
-                        </VisualState.StateTriggers>
-                    </VisualState>
-                    <VisualState x:Name="VisualStateTablet">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="600"/>
-                        </VisualState.StateTriggers>
-                    </VisualState>
-                    <VisualState x:Name="VisualStateDesktop">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="800"/>
-                        </VisualState.StateTriggers>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
         </Grid>
-        <Grid Height="{Binding ElementName=layoutcanvas, Path=ActualHeight}"
-              Width="{Binding ElementName=layoutcanvas, Path=ActualWidth}"
-              Visibility = "{Binding IsLoading}">
-            <RelativePanel Background="DodgerBlue" Opacity="0.5">
+        <Grid RelativePanel.AlignLeftWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.AlignBottomWithPanel="True"
+              RelativePanel.AlignTopWithPanel="True"
+              Visibility = "{Binding IsLoading}" d:IsHidden="False">
+            <RelativePanel Background="White" Opacity="0.5">
                 <ProgressRing IsActive="True"
-                      Foreground="White" Name="progressBar" Width="100" Height="100"
+                      Foreground="DodgerBlue" Name="progressBar" Width="100" Height="100"
                       RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                <TextBlock RelativePanel.Below="progressBar"
-                   RelativePanel.AlignHorizontalCenterWithPanel="True"
-                   FontSize="16"
-                   Foreground="White"
-                   Text="{Binding LoadingStatus}"/>
             </RelativePanel>
         </Grid>
-    </Canvas>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroupe">
+                <VisualState x:Name="VisualStatePhone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitviewMenu.(SplitView.DisplayMode)" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateTablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="VisualStateDesktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </RelativePanel>
 </Page>

@@ -18,19 +18,22 @@ namespace RawNotification.DotNetCoreBL
     public static class RNAdapter
     {
         private static Dictionary<int, Action<NotificationInfoForRequesting>> ReceivedNotification = new Dictionary<int, Action<NotificationInfoForRequesting>>(4);
+        private static Dictionary<int, Action<IEnumerable<long>>> NotificationListItemRemoved = new Dictionary<int, Action<IEnumerable<long>>>(4);
 
         public static void RegisterNotificationReceivedAsyncEvent(Action<NotificationInfoForRequesting> handler, int Id)
         {
             Action<NotificationInfoForRequesting> value;
             if (ReceivedNotification.TryGetValue(Id, out value))
-            {
                 ReceivedNotification.Remove(Id);
-                ReceivedNotification.Add(Id, handler);
-            }
-            else
-            {
-                ReceivedNotification.Add(Id, handler);
-            }
+            ReceivedNotification.Add(Id, handler);
+        }
+
+        public static void RegisterNotificationListItemRemoved(Action<IEnumerable<long>> handler, int Id)
+        {
+            Action<IEnumerable<long>> value;
+            if (NotificationListItemRemoved.TryGetValue(Id, out value))
+                NotificationListItemRemoved.Remove(Id);
+            NotificationListItemRemoved.Add(Id, handler);
         }
 
         public async static Task<byte[]> GetNotificationContentAsync(long parameter, string NotificationAccessKey)
@@ -46,6 +49,14 @@ namespace RawNotification.DotNetCoreBL
             }
         }
 
+        private static void FireNotificationRemovedEvent(IEnumerable<long> args)
+        {
+            foreach (var item in NotificationListItemRemoved)
+            {
+                item.Value(args);
+            }
+        }
+
         public async static Task<IEnumerable<NotificationInfoForRequesting>> GetAllPreviewData()
         {
             return await RNAdapterCore.GetAllPreviewContentAsync();
@@ -53,9 +64,8 @@ namespace RawNotification.DotNetCoreBL
 
         public static async Task DeleteAllNotificationAsync()
         {
-
-            IDataProvider provider = new DataProvider();
-            await(await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
+            await RNAdapterCore.DeleteAllNotificationAsync();
+            FireNotificationRemovedEvent((await GetAllPreviewData()).Select(n => n.NotificationId));
         }
 
         /// <summary>
@@ -110,7 +120,7 @@ namespace RawNotification.DotNetCoreBL
 
         public static async Task Logout(bool keepData)
         {
-            await RNAdapterCore.Logout(keepData,Utilities.GetDeviceIMEI());
+            await RNAdapterCore.Logout(keepData, Utilities.GetDeviceIMEI());
         }
     }
 }

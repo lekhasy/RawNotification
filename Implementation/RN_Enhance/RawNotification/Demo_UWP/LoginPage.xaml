@@ -21,10 +21,15 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="UserId" PlaceholderText="User Id" Style="{StaticResource LoginTextBox}" BorderBrush="White"/>
+            <TextBox x:Name="UserId" 
+                     PlaceholderText="User Id"
+                     Style="{StaticResource LoginTextBox}" 
+                     BorderBrush="White"
+                     KeyDown="PasswordBox_KeyDown"/>
             <PasswordBox x:Name="PasswordBox"
                          PlaceholderText="Password" 
-                         Style="{StaticResource PasswordTextBox}" Grid.Row="1"/>
+                         Style="{StaticResource PasswordTextBox}" Grid.Row="1"
+                         KeyDown="PasswordBox_KeyDown"/>
         </Grid>
         <Button
             Name="LoginButton"

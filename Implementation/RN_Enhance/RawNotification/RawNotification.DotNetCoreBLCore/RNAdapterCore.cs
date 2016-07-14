@@ -65,6 +65,11 @@ namespace RawNotification.DotNetCoreBLCore
             return null;
         }
 
+        public static async Task DeleteAllNotificationAsync()
+        {
+            await(await DAProvider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
+        }
+
         public async static Task<IEnumerable<NotificationInfoForRequesting>> GetAllPreviewContentAsync()
         {
             var Provider = await DAProvider.GetNotifiInfoDataProviderAsync();

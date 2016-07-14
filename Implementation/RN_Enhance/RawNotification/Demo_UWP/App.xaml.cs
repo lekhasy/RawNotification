@@ -112,5 +112,22 @@ namespace Demo_UWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+
+            if (args.Kind != ActivationKind.VoiceCommand)
+            {
+                return;
+            }
+
+            var commandargs = args as VoiceCommandActivatedEventArgs;
+            var speechRecognitionResult = commandargs.Result;
+            string commandName = speechRecognitionResult.RulePath[0];
+            string textSpoken = speechRecognitionResult.Text;
+            
+
+        }
     }
 }

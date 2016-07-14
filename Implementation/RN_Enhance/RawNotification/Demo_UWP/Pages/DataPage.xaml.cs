@@ -43,5 +43,10 @@ namespace Demo_UWP.Pages
             isLoaded = true;
             ListBoxData.SelectedIndex = -1;
         }
+
+        private async void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await vm.labeltapped();
+        }
     }
 }
