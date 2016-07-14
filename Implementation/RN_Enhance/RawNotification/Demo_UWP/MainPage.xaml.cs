@@ -15,6 +15,7 @@ namespace Demo_UWP
     {
         ViewModels.MainPageViewModel vm;
         
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -69,6 +70,11 @@ namespace Demo_UWP
             {
                 vm.NavigateToSettingPage();
             }
+        }
+
+        private async void BtnDeleteAll_Click(object sender, RoutedEventArgs e)
+        {
+            await vm.RemoveAllDataAsync();
         }
     }
 }

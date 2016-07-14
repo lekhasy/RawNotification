@@ -143,6 +143,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\ContentDetailPageViewModel.cs" />
     <Compile Include="ViewModels\DataPageViewModel.cs" />
     <Compile Include="ViewModels\LoadingPageViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

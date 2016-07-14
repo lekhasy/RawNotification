@@ -69,6 +69,7 @@ namespace RawNotification.DotNetCoreDataProviders
 
         public async Task SaveAsync()
         {
+            file = await folder.CreateFileAsync(file.Name, CreationCollisionOption.ReplaceExisting);
             using (Stream stream = await file.OpenStreamForWriteAsync())
             {
                 serializer.WriteObjectToStream(await List(), stream);

@@ -17,7 +17,7 @@
                 Content="&#xE0D5;"
                 Click="Button_Click"
                 ></Button>
-        <TextBlock x:Name="textBlockContent" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Content" Style="{StaticResource TitleTextBlockStyle}" Grid.Row="1"/>
+        <TextBlock Text="{Binding Content}" x:Name="textBlockContent" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}" Grid.Row="1"/>
 
     </Grid>
 </Page>

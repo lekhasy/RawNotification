@@ -15,5 +15,7 @@ namespace Demo_UWP.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
+        public static Action DoLongWork;
+        public static Action FinishDoLongWork;
     }
 }

@@ -19,7 +19,7 @@ namespace RawNotification.DotNetCoreDataProviders.Implements
         {
             get
             {
-                return _Service ?? (_Service = new RNClientCommunicatorClient());
+                return new RNClientCommunicatorClient();
             }
         }
 

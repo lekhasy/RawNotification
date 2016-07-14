@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Demo_UWP.ViewModels;
 using RawNotification.DotNetCoreUserCodeModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,23 +25,17 @@ namespace Demo_UWP.Pages
     /// </summary>
     public sealed partial class ContentDetailPage : Page
     {
+        ContentDetailPageViewModel vm;
         public ContentDetailPage()
         {
             this.InitializeComponent();
+            vm = new ContentDetailPageViewModel();
+            this.DataContext = vm;
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            try
-            {
-                PreviewModel notification = e.Parameter as PreviewModel;
-                byte[] data = await RawNotification.DotNetCoreBL.RNAdapter.GetNotificationContentAsync(notification.NotificationId, notification.NotificationAccessKey);
-                RawNotification.SharedLibs.JSONObjectSerializer<string> serializer = new RawNotification.SharedLibs.JSONObjectSerializer<string>();
-                textBlockContent.Text = serializer.BytesToObject(data);
-            } catch(Exception ex)
-            {
-                await new MessageDialog(ex.Message).ShowAsync();
-            }
+            await vm.InitializeContent(e.Parameter as PreviewModel);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

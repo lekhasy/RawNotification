@@ -31,6 +31,8 @@ namespace RawNotification.DotNetCoreBLCore
                 var result = (await DAProvider.GetServiceProviderAsync().GetNotificationContentAsync(NotificationId, NotificationAccessKey, Settings.UserNewId, Settings.Token));
                 data = result.Data;
                 result.FireMessageExceptionForServiceResult();
+                // no exception occurred
+                await (await DAProvider.GetNotifiInfoDataProviderAsync()).AddNotificationContentAsync(NotificationId, result.Data);
             }
             return data;
         }
@@ -114,6 +116,22 @@ namespace RawNotification.DotNetCoreBLCore
             rtDevice.URI = channel.Uri;
             rtDevice.ReceiverNewID = DotNetCoreBLCore.Settings.UserNewId;
             return rtDevice;
+        }
+
+        public static async Task Logout(bool keepData, string IMEI)
+        {
+            try
+            {
+                if (!keepData)
+                    await(await DAProvider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
+                await DAProvider.GetServiceProviderAsync().LogoutAsync(IMEI, Settings.UserNewId, Settings.Token);
+            }
+            catch { }
+            finally
+            {
+                Settings.Token = null;
+                Settings.UserNewId = 0;
+            }
         }
     }
 }

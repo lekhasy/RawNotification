@@ -51,6 +51,13 @@ namespace RawNotification.DotNetCoreBL
             return await RNAdapterCore.GetAllPreviewContentAsync();
         }
 
+        public static async Task DeleteAllNotificationAsync()
+        {
+
+            IDataProvider provider = new DataProvider();
+            await(await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
+        }
+
         /// <summary>
         /// Intialize RN Adapter
         /// </summary>
@@ -103,19 +110,7 @@ namespace RawNotification.DotNetCoreBL
 
         public static async Task Logout(bool keepData)
         {
-            IDataProvider provider = new DataProvider();
-            try
-            {
-                if (!keepData)
-                    await (await provider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
-                await provider.GetServiceProviderAsync().LogoutAsync(Utilities.GetDeviceIMEI(), Settings.UserNewId, Settings.Token);
-            }
-            catch { }
-            finally
-            {
-                Settings.Token = null;
-                Settings.UserNewId = 0;
-            }
+            await RNAdapterCore.Logout(keepData,Utilities.GetDeviceIMEI());
         }
     }
 }

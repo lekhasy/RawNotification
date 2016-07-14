@@ -39,8 +39,13 @@ namespace RawNotification.DotNetCoreDataProviders.Implements
         public async Task AddNotificationContentAsync(long NotificationID, byte[] NotificationContent)
         {
             var notify = await NotificationContents.FirstOrDefault(n => n.Id == NotificationID);
+            if (notify==null)
+            {
+                notify = new Notification();
+                notify.Id = NotificationID;
+            }
             notify.NotificationContent = NotificationContent;
-            await Notifications.SaveAsync();
+            await NotificationContents.Add(notify);
         }
 
         public async Task<byte[]> GetNotificationContentAsync(long NotificationID)
