@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e0d6fcf4-1c11-4cc2-b412-64c6a0aa7e0c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="670a0ee5-56a1-48b2-8a84-66c54abc5e7a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,10 +24,10 @@
     <MetadataSource Address="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3708595d-7bd1-4c98-b89e-a0e51b104216" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="eda36d19-8b08-4529-9e76-a5dd6ed74057" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e903c4d-0dbb-4fd8-9dfc-d6ff13180144" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
-    <MetadataFile FileName="RawNotification.SharedServiceModels.xsd" MetadataType="Schema" ID="3ec7124a-52de-4276-81fe-89f9b6a623c1" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="22a52414-51b6-4a97-bb63-f466fe247743" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="2a6e1915-a57d-4c37-96b3-096e0127038e" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="307ad733-8027-40c9-86b7-4139e55eca7d" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
+    <MetadataFile FileName="RawNotification.Models.xsd" MetadataType="Schema" ID="ba73cde9-8607-4f56-8674-7c46c65cdd31" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

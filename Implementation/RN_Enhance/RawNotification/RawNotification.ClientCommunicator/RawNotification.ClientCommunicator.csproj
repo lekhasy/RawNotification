@@ -55,8 +55,11 @@
     <Compile Include="RNClientCommunicator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\log4net.config">
+      <Link>log4net.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="app.config" />
-    <None Include="log4net.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

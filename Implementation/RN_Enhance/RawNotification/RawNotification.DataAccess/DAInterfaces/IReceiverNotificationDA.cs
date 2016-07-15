@@ -9,5 +9,7 @@ namespace RawNotification.DataAccess.DAInterfaces
     public interface IReceiverNotificationDA
     {
         void InsertReceiverNotification(ReceiverNotification entity);
+
+        ReceiverNotification GetReceiverNotificationById(long ReceiverNotificationId);
     }
 }

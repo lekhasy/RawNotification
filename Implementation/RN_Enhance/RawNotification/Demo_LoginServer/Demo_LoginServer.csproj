@@ -77,10 +77,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\log4net.config">
+      <Link>log4net.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="log4.config" />
     <None Include="LoginDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LoginDB.designer.cs</LastGenOutput>

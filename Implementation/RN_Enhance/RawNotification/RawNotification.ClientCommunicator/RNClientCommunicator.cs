@@ -4,7 +4,6 @@ using RawNotification.BusinessLogic.BLImplements;
 using RawNotification.BusinessLogic.BLInterfaces;
 using RawNotification.Models;
 using RawNotification.Models.DBModels;
-using RawNotification.Models;
 
 namespace RawNotification.ClientCommunicator
 {

@@ -15,6 +15,11 @@ namespace RawNotification.DataAccess.DAImplements
         {
         }
 
+        public ReceiverNotification GetReceiverNotificationById(long ReceiverNotificationId)
+        {
+            return connection.Get<ReceiverNotification>(ReceiverNotificationId, transaction);
+        }
+
         public void InsertReceiverNotification(ReceiverNotification enitty)
         {
             connection.Insert( enitty, transaction: transaction);

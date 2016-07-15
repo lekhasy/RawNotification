@@ -5,7 +5,6 @@ using System.Text;
 using RawNotification.DataAccess;
 using RawNotification.Models;
 using RawNotification.Models.DBModels;
-using RawNotification.Models;
 
 namespace RawNotification.BusinessLogic.BLImplements
 {

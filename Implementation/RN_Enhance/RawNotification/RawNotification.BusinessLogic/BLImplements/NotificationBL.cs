@@ -7,7 +7,6 @@ using RawNotification.Models.ServerBusinessModels;
 using RawNotification.Models.ServerBusinessModels.Exceptions;
 using RawNotification.Models;
 using RawNotification.Models.DBModels;
-using RawNotification.Models;
 
 namespace RawNotification.BusinessLogic.BLImplements
 {
@@ -27,7 +26,7 @@ namespace RawNotification.BusinessLogic.BLImplements
             {
                 string notificationAccessKey = Guid.NewGuid().ToString();
 
-                Notification notifi = new Notification { NotificationContent = notificaitonData, NotificationAccessKey = notificationAccessKey, NotificationPreviewContent = NotificationPreviewContent};
+                Notification notifi = new Notification { NotificationContent = notificaitonData, NotificationAccessKey = notificationAccessKey, NotificationPreviewContent = NotificationPreviewContent };
                 DB.NotificationDA.InsertNotification(notifi);
 
                 // thêm thông báo vào cho các receiver
@@ -53,7 +52,8 @@ namespace RawNotification.BusinessLogic.BLImplements
                 }
                 DB.commit();
                 return new BaseServiceResult(ResultStatusCodes.OK, null);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 _Logger.Error("An error ocurred while add notification", ex);
                 return BaseServiceResult.InternalErrorResult;
@@ -62,7 +62,19 @@ namespace RawNotification.BusinessLogic.BLImplements
 
         public BaseServiceResult<bool> CheckIfNotificationRead(long receiverNotificationID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = DB.ReceiverNotificationDA.GetReceiverNotificationById(receiverNotificationID);
+                if (result == null)
+                {
+                    return new BaseServiceResult<bool>(ResultStatusCodes.NotFound, false);
+                }
+                return new BaseServiceResult<bool>(ResultStatusCodes.OK, result.IsRead);
+            }
+            catch
+            {
+                return BaseServiceResult<bool>.InternalErrorResult;
+            }
         }
 
         public BaseServiceResult<byte[]> GetNotificationContent(long notificationId, string NotificationAccessKey)
@@ -79,7 +91,8 @@ namespace RawNotification.BusinessLogic.BLImplements
                     return new BaseServiceResult<byte[]>(ResultStatusCodes.InvalidToken, null);
                 }
                 return new BaseServiceResult<byte[]>(ResultStatusCodes.OK, notification.NotificationContent);
-            } catch
+            }
+            catch
             {
                 return BaseServiceResult<byte[]>.InternalErrorResult;
             }

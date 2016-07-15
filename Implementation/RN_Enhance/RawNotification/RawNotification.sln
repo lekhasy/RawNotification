@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo_LoginServer", "Demo_Lo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85D2ED6A-1E79-466E-A291-1C6F4FEAC799}"
 	ProjectSection(SolutionItems) = preProject
-		RawNotification.ServerCommunicator\log4net.config = RawNotification.ServerCommunicator\log4net.config
+		log4net.config = log4net.config
 		ServiceConfigurationInfo.txt = ServiceConfigurationInfo.txt
 	EndProjectSection
 EndProject
