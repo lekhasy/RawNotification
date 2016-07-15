@@ -59,7 +59,6 @@ namespace RawNotification.BusinessLogic.RawNotificationSenders.RNSImplements
                 try
                 {   // nhận về response
                     HttpWebResponse webResponse = (HttpWebResponse)request.GetResponse();
-                    _Logger.Debug(webResponse.Headers["X-WNS-Status"] + webResponse.Headers["X-WNS-DeviceConnectionStatus"]);
                     return EnumWNSSendResult.Success;
                 } catch (WebException webException)
                 {

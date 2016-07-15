@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Linq;
 using System.Threading.Tasks;
 using RawNotification.BusinessLogic.RawNotificationSenders.RNSInterfaces;
 using RawNotification.DataAccess;
@@ -144,6 +145,11 @@ namespace RawNotification.BusinessLogic
                 DB.ReceiverDA.DeleteAllReceiverHaveNoDevice();
 
                 DB.commit();
+                _Logger.Info("Send Done" + Environment.NewLine + 
+                    "Total notifications: " + result.Count().ToString() + Environment.NewLine +
+                    "Bad URI: " + BadURINotifiList.Count.ToString() + Environment.NewLine+
+                    "Success: " + SuccessNotifiList.Count.ToString());
+
             } catch (Exception ex)
             {
                 _Logger.Error("An error occurred while sending notification", ex);
