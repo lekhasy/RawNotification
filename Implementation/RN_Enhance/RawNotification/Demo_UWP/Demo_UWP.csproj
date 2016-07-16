@@ -108,6 +108,22 @@
     <None Include="Service References\Demo_LoginService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\QLKHDataService\Demo_UWP.QLKHDataService.BaseServiceResultOfArrayOfKhachHangInfoAW6F_STXv.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QLKHDataService\QLKHDataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QLKHDataService\RawNotification.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QLKHDataService\service.wsdl" />
+    <None Include="Service References\QLKHDataService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QLKHDataService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -139,12 +155,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\QLKHDataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\ContentDetailPageViewModel.cs" />
     <Compile Include="ViewModels\DataPageViewModel.cs" />
     <Compile Include="ViewModels\LoadingPageViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\SettingPageViewModel.cs" />
     <Compile Include="ViewModels\SuperViewModelcs.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +176,12 @@
     <None Include="Demo_UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\QLKHDataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\QLKHDataService\configuration.svcinfo" />
+    <None Include="Service References\QLKHDataService\configuration91.svcinfo" />
     <None Include="Service References\Demo_LoginService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -285,6 +313,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Demo_LoginService\" />
+    <WCFMetadataStorage Include="Service References\QLKHDataService\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

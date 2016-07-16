@@ -15,7 +15,7 @@ namespace QLKHDataService
         {
             try
             {
-                var address = "net.tcp://{0}:{1}/RNServerService";
+                var address = "net.tcp://{0}:{1}/QLKHDataService";
                 string hostName = ConfigurationManager.AppSettings["HostNameOrIP"];
                 string portNumber = ConfigurationManager.AppSettings["PortNumber"];
 
@@ -70,7 +70,7 @@ namespace QLKHDataService
                     serviceHost.Open();
 
                     // The service can now be accessed.
-                    Console.WriteLine("The RN Server Service is ready.");
+                    Console.WriteLine("The QLKH Data Service is ready.");
                     Console.WriteLine("Press <ENTER> to terminate service.");
                     Console.WriteLine();
                     Console.ReadLine();

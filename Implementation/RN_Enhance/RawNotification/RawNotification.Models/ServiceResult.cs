@@ -67,7 +67,7 @@ namespace RawNotification.Models
         public new static readonly BaseServiceResult<T> InternalErrorResult = new BaseServiceResult<T>(ResultStatusCodes.UnknownError, default(T));
     }
 
-    [DataContract]
+    [DataContract(Namespace = "RawNotification.Models", Name = "BaseServiceResult")]
     public class BaseServiceResult
     {
         [DataMember]

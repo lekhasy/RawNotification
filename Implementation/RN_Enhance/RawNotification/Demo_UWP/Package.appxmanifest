@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="34874LKhS.ihcBnhDng" Publisher="CN=A16F0830-C459-450E-9E57-2F3BBB9BDE06" Version="1.1.4.0" />
+  <Identity Name="34874LKhS.ihcBnhDng" Publisher="CN=A16F0830-C459-450E-9E57-2F3BBB9BDE06" Version="1.1.5.0" />
   <mp:PhoneIdentity PhoneProductId="4ee8ce9b-94fa-470a-9912-69c918cbac0e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Đại học Bình Dương</DisplayName>
@@ -33,15 +33,15 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" Executable="Demo_UWP.exe" EntryPoint="RawNotification.DotNetCoreBGTasks.RawReceiverBackgroundTask">
-          <BackgroundTasks>
-            <Task Type="pushNotification" />
-          </BackgroundTasks>
-        </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="RawNotification.DotNetCoreBGTasks.TimerRegisterBackgroundTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" Executable="Demo_UWP.exe" EntryPoint="RawNotification.DotNetCoreBGTasks.RawReceiverBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="pushNotification" />
           </BackgroundTasks>
         </Extension>
       </Extensions>

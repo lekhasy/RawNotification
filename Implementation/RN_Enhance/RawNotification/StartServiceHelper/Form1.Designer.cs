@@ -47,6 +47,11 @@
             this.btn_ServerCmm_ViewLog = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_QLKH_ViewLog = new System.Windows.Forms.Button();
+            this.btn_QLKH_Config = new System.Windows.Forms.Button();
+            this.btn_QLKH_Start = new System.Windows.Forms.Button();
+            this.lbl_QLKH = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_ServerCmm_Start
@@ -221,11 +226,65 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnCloseAll_Click);
             // 
+            // btn_QLKH_ViewLog
+            // 
+            this.btn_QLKH_ViewLog.Location = new System.Drawing.Point(405, 121);
+            this.btn_QLKH_ViewLog.Name = "btn_QLKH_ViewLog";
+            this.btn_QLKH_ViewLog.Size = new System.Drawing.Size(75, 23);
+            this.btn_QLKH_ViewLog.TabIndex = 21;
+            this.btn_QLKH_ViewLog.Text = "View Log";
+            this.btn_QLKH_ViewLog.UseVisualStyleBackColor = true;
+            this.btn_QLKH_ViewLog.Click += new System.EventHandler(this.btn_QLKH_ViewLog_Click);
+            // 
+            // btn_QLKH_Config
+            // 
+            this.btn_QLKH_Config.Location = new System.Drawing.Point(312, 121);
+            this.btn_QLKH_Config.Name = "btn_QLKH_Config";
+            this.btn_QLKH_Config.Size = new System.Drawing.Size(75, 23);
+            this.btn_QLKH_Config.TabIndex = 20;
+            this.btn_QLKH_Config.Text = "Config";
+            this.btn_QLKH_Config.UseVisualStyleBackColor = true;
+            this.btn_QLKH_Config.Click += new System.EventHandler(this.btn_QLKH_Config_Click);
+            // 
+            // btn_QLKH_Start
+            // 
+            this.btn_QLKH_Start.Location = new System.Drawing.Point(219, 121);
+            this.btn_QLKH_Start.Name = "btn_QLKH_Start";
+            this.btn_QLKH_Start.Size = new System.Drawing.Size(75, 23);
+            this.btn_QLKH_Start.TabIndex = 19;
+            this.btn_QLKH_Start.Text = "Start";
+            this.btn_QLKH_Start.UseVisualStyleBackColor = true;
+            this.btn_QLKH_Start.Click += new System.EventHandler(this.btn_QLKH_Start_Click);
+            // 
+            // lbl_QLKH
+            // 
+            this.lbl_QLKH.AutoSize = true;
+            this.lbl_QLKH.ForeColor = System.Drawing.Color.Teal;
+            this.lbl_QLKH.Location = new System.Drawing.Point(145, 121);
+            this.lbl_QLKH.Name = "lbl_QLKH";
+            this.lbl_QLKH.Size = new System.Drawing.Size(54, 13);
+            this.lbl_QLKH.TabIndex = 18;
+            this.lbl_QLKH.Text = "Loading...";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "QLKH Data Service";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 188);
+            this.Controls.Add(this.btn_QLKH_ViewLog);
+            this.Controls.Add(this.btn_QLKH_Config);
+            this.Controls.Add(this.btn_QLKH_Start);
+            this.Controls.Add(this.lbl_QLKH);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Login_ViewLog);
             this.Controls.Add(this.btn_ClientCmm_ViewLog);
@@ -271,6 +330,11 @@
         private System.Windows.Forms.Button btn_ServerCmm_ViewLog;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_QLKH_ViewLog;
+        private System.Windows.Forms.Button btn_QLKH_Config;
+        private System.Windows.Forms.Button btn_QLKH_Start;
+        private System.Windows.Forms.Label lbl_QLKH;
+        private System.Windows.Forms.Label label4;
     }
 }
 

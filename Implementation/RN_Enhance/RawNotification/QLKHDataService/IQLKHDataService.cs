@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using RawNotification.Models;
 
 namespace QLKHDataService
 {
@@ -11,6 +12,6 @@ namespace QLKHDataService
     public interface IQLKHDataService
     {
         [OperationContract]
-        IEnumerable<KhachHangInfo> GetAllKhachHangs();
+       BaseServiceResult<IEnumerable<KhachHangInfo>> GetAllKhachHangs();
     }
 }

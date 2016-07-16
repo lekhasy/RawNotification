@@ -7,7 +7,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Height="Auto">Setting Page</TextBlock>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="8,8,8,8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Preview Data:"/>
+        <TextBox Grid.Row="1"/>
+
+        <TextBlock Text="Content: " Grid.Row="2" Margin="0,8,0,0" />
+        <RichEditBox Grid.Row="3" Height="100"/>
+
+        <StackPanel Grid.Row="4" Margin="0,8,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Add"/>
+            <Button Content="Send All" Margin="8,0,0,0"/>
+        </StackPanel>
+        <ListBox Grid.Row="5" Margin="0,8,0,0" ItemsSource="{Binding Customers}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <CheckBox/>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

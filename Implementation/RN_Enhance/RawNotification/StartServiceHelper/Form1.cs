@@ -52,6 +52,10 @@ namespace StartServiceHelper
             status = model.LoginService.GetStatus();
             lbl_LoginSvc.Text = status.ToString();
             lbl_LoginSvc.ForeColor = status.GetColor();
+
+            status = model.QLKHDataService.GetStatus();
+            lbl_QLKH.Text = status.ToString();
+            lbl_QLKH.ForeColor = status.GetColor();
         }
 
         private void btn_ClientCmm_Start_Click(object sender, EventArgs e)
@@ -92,6 +96,21 @@ namespace StartServiceHelper
         private void btn_Restart_Click(object sender, EventArgs e)
         {
             model.StartAll();
+        }
+
+        private void btn_QLKH_Start_Click(object sender, EventArgs e)
+        {
+            model.QLKHDataService.StartService();
+        }
+
+        private void btn_QLKH_Config_Click(object sender, EventArgs e)
+        {
+            model.QLKHDataService.OpenConfig();
+        }
+
+        private void btn_QLKH_ViewLog_Click(object sender, EventArgs e)
+        {
+            model.QLKHDataService.ViewLog();
         }
     }
 }

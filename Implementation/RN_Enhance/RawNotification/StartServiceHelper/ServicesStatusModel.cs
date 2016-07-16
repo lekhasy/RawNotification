@@ -15,8 +15,8 @@ namespace StartServiceHelper
         public ServicesStatusModel ServerCommunicator { get; private set; }
         public ServicesStatusModel ClientCommunicator { get; private set; }
         public ServicesStatusModel LoginService { get; private set; }
+        public ServicesStatusModel QLKHDataService { get; private set; }
 
-        //DirectoryInfo RN_BuildFolder
 
         public RNSStatusModel()
         {
@@ -40,6 +40,13 @@ namespace StartServiceHelper
                 ConfigMapper.LoginConfigFileName,
                 ConfigMapper.LoginLogFolderPath
             );
+
+            QLKHDataService = new ServicesStatusModel(
+                ConfigMapper.QLKHFolderPath,
+                ConfigMapper.QLKHExeFileName,
+                ConfigMapper.QLKHConfigFileName,
+                ConfigMapper.QLKHLogFolderPath
+            );
         }
 
         internal void CloseAll()
@@ -47,6 +54,7 @@ namespace StartServiceHelper
             ServerCommunicator.CloseService();
             ClientCommunicator.CloseService();
             LoginService.CloseService();
+            QLKHDataService.CloseService();
         }
 
         internal void StartAll()
@@ -54,6 +62,7 @@ namespace StartServiceHelper
             ServerCommunicator.StartService();
             ClientCommunicator.StartService();
             LoginService.StartService();
+            QLKHDataService.StartService();
         }
     }
 
