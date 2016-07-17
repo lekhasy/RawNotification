@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="52e818f8-6ec5-4460-b7d8-1b199c58439a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e806451a-92be-439e-9453-3647a10ef396" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="72bb9463-0937-4b1c-9d74-c7a8840dc174" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="919652d9-8076-427b-8469-1d52049582a1" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" />
+    <MetadataFile FileName="RawNotification.Models.xsd" MetadataType="Schema" ID="f79b1693-f790-4b07-9afe-982750def473" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" />
+    <MetadataFile FileName="RawNotification.Models1.xsd" MetadataType="Schema" ID="ed4f70c3-cb55-4143-876d-9506fca4e18f" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="1bec77e4-a94d-4ae0-ac99-6ba1debd78e3" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2694/RNServerService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

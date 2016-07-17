@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using RawNotification.Models;
 using RawNotification.Models.DBModels;
-using RawNotification.Models;
 
 namespace RawNotification.DotNetCoreDataProviders.Interfaces
 {

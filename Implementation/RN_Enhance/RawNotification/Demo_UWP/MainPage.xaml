@@ -66,9 +66,9 @@
                             </ListBoxItem>
                             <ListBoxItem x:Name="SettingListBoxItem" >
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="24" Margin="0,0,16,0"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE89C;" FontSize="24" Margin="0,0,16,0"/>
                                     <TextBlock>
-                                	<Run Text="Setting"/>
+                                	<Run Text="Sender Workspace"/>
                                     </TextBlock>
                                 </StackPanel>
                             </ListBoxItem>

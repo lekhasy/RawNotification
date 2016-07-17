@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="RawNotification.Models" elementFormDefault="qualified" targetNamespace="RawNotification.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/RawNotification.Models" />
+  <xs:complexType name="BaseServiceResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="StatusCode" type="q1:ResultStatusCodes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseServiceResult" nillable="true" type="tns:BaseServiceResult" />
+</xs:schema>

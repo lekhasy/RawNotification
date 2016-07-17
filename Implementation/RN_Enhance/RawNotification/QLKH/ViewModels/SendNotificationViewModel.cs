@@ -99,7 +99,7 @@ namespace QLKH.ViewModels
                     }
                     else
                     {
-                        MessageBox.Show("Adding notification successfull", "Success");
+                        MessageBox.Show("Sending notification successfull", "Success");
                     }
                 }
             } catch (Exception ex)

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ba4cc914-ba80-47f4-a2b9-85cb10cf6c2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="9ab3ae52-769d-4335-860d-2db4be4ed500" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="dfc31f79-055b-4347-9a48-ffc641cf0d23" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="57c44bfc-bf09-4313-8882-1db4fecf7bb3" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" />
+    <MetadataFile FileName="RawNotification.Models.xsd" MetadataType="Schema" ID="5170bf16-cdd3-4cf2-9610-4c557d68c969" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" />
+    <MetadataFile FileName="RawNotification.Models1.xsd" MetadataType="Schema" ID="2c6e95f8-87ee-4d8c-906e-e2090f8758b8" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" />
+    <MetadataFile FileName="QLKHDataService.xsd" MetadataType="Schema" ID="9d05c192-4b62-4ff7-93d0-95f45d4cb7c0" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:2697/QLKHDataService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 using RawNotification.DotNetCoreDataProviders.RNClientService;
 using RawNotification.Models;
 using RawNotification.Models.DBModels;
-using RawNotification.Models;
 
 namespace RawNotification.DotNetCoreDataProviders.Implements
 {
     public class RNServiceProvider : Interfaces.IRNServiceProvider
     {
-
-        IRNClientCommunicator _Service;
-
         IRNClientCommunicator Service
         {
             get

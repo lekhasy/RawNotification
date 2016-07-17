@@ -95,6 +95,7 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="Demo_UWP_StoreKey.pfx" />
     <None Include="project.json" />
+    <None Include="Properties\DataSources\RawNotification.Models.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult1.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
@@ -108,7 +109,7 @@
     <None Include="Service References\Demo_LoginService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QLKHDataService\Demo_UWP.QLKHDataService.BaseServiceResultOfArrayOfKhachHangInfoAW6F_STXv.datasource">
+    <None Include="Service References\QLKHDataService\Demo_UWP.QLKHDataService.KhachHangInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\QLKHDataService\QLKHDataService.xsd">
@@ -117,11 +118,30 @@
     <None Include="Service References\QLKHDataService\RawNotification.Models.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\QLKHDataService\RawNotification.Models1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\QLKHDataService\service.wsdl" />
     <None Include="Service References\QLKHDataService\service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\QLKHDataService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNServerService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNServerService\RawNotification.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNServerService\RawNotification.Models1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNServerService\service.wsdl" />
+    <None Include="Service References\RNServerService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RNServerService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -160,6 +180,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\RNServerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\ContentDetailPageViewModel.cs" />
     <Compile Include="ViewModels\DataPageViewModel.cs" />
@@ -176,6 +201,12 @@
     <None Include="Demo_UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\RNServerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RNServerService\configuration.svcinfo" />
+    <None Include="Service References\RNServerService\configuration91.svcinfo" />
     <None Include="Service References\QLKHDataService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -314,6 +345,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Demo_LoginService\" />
     <WCFMetadataStorage Include="Service References\QLKHDataService\" />
+    <WCFMetadataStorage Include="Service References\RNServerService\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
