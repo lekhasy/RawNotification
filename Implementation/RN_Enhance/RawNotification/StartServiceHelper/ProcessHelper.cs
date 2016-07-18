@@ -16,7 +16,7 @@ namespace StartServiceHelper
             return false;
         }
 
-        public static void StartProcess(string fileName)
+        public static void StartProcess(string fileName, bool EnableUI = false)
         {
             string processName = Path.GetFileNameWithoutExtension(fileName);
             if (IsProcessRunning(processName))
@@ -28,14 +28,22 @@ namespace StartServiceHelper
                 }
             }
 
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.FileName = fileName;
-            info.CreateNoWindow = true;
-            info.RedirectStandardOutput = true;
-            info.RedirectStandardError = true;
-            info.UseShellExecute = false;
+            if (!EnableUI)
+            {
+                ProcessStartInfo info = new ProcessStartInfo();
+                info.FileName = fileName;
+                info.CreateNoWindow = true;
+                info.RedirectStandardOutput = true;
+                info.RedirectStandardError = true;
+                info.UseShellExecute = false;
 
-            Process.Start(info);
+                Process.Start(info);
+            }
+            else
+            {
+                Process.Start(fileName);
+            }
+            
         }
         
         internal static void CloseProcess(string fileName)

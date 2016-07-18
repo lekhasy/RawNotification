@@ -17,6 +17,8 @@ namespace StartServiceHelper
         public ServicesStatusModel LoginService { get; private set; }
         public ServicesStatusModel QLKHDataService { get; private set; }
 
+        public ServicesStatusModel QLKHApp { get; private set; }
+
 
         public RNSStatusModel()
         {
@@ -47,6 +49,13 @@ namespace StartServiceHelper
                 ConfigMapper.QLKHConfigFileName,
                 ConfigMapper.QLKHLogFolderPath
             );
+
+            QLKHApp = new ServicesStatusModel(
+                ConfigMapper.QLKHAppFolderPath,
+                ConfigMapper.QLKHAppExeFileName,
+                "",
+                "", true
+            );
         }
 
         internal void CloseAll()
@@ -69,13 +78,17 @@ namespace StartServiceHelper
     public class ServicesStatusModel
     {
 
-        public ServicesStatusModel(string folderpath, string exefile, string configfile, string logfolder)
+        public ServicesStatusModel(string folderpath, string exefile, string configfile, string logfolder, bool enableUI = false)
         {
             this.FolderPath = folderpath;
             this.ExeFileName = exefile;
             this.ConfigFileName = configfile;
             this.LogFolderName = logfolder;
+            this.EnableUI = enableUI;
         }
+
+
+        private bool EnableUI { get; set; }
 
         /// <summary>
         /// path of folder that contain exe file
@@ -96,7 +109,7 @@ namespace StartServiceHelper
 
         public void StartService()
         {
-            ProcessHelper.StartProcess(Directories.RN_BuildFolder + FolderPath + ExeFileName);
+            ProcessHelper.StartProcess(Directories.RN_BuildFolder + FolderPath + ExeFileName, EnableUI);
         }
 
         public void CloseService()

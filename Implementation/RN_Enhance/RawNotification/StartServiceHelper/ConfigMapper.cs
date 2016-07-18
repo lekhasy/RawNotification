@@ -28,5 +28,8 @@ namespace StartServiceHelper
         public static string QLKHExeFileName = ConfigurationManager.AppSettings["QLKHExeFileName"];
         public static string QLKHConfigFileName = ConfigurationManager.AppSettings["QLKHConfigFileName"];
         public static string QLKHLogFolderPath = ConfigurationManager.AppSettings["QLKHLogFolderPath"];
+
+        public static string QLKHAppFolderPath = ConfigurationManager.AppSettings["QLKHAppFolderPath"];
+        public static string QLKHAppExeFileName = ConfigurationManager.AppSettings["QLKHAppExeFileName"];
     }
 }

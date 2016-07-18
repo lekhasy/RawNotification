@@ -47,5 +47,10 @@ namespace QLKH
         {
             vm.SendAllNotification();
         }
+
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            await vm.CheckSend100times();
+        }
     }
 }

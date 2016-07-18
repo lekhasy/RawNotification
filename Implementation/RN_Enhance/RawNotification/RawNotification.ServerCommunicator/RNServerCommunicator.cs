@@ -29,14 +29,14 @@ namespace RawNotification.ServerCommunicator
             }
         }
 
-        public async Task<BaseServiceResult> SendAllNotification()
+        public BaseServiceResult SendAllNotification()
         {
             try
             {
                 var wnsParam = new WNSParameter(Settings.WNSPackageSID.Value, Settings.WNSSecretKey.Value, Settings.GetWNSToken, Settings.SetWNSToken);
                 using (var sender = new RawNotificationSender(wnsparameter: wnsParam))
                 {
-                    await sender.SendAllNotificationAsync();
+                    sender.SendAllNotificationAsync();
                     return new BaseServiceResult( ResultStatusCodes.OK, null);
                 }
             } catch (Exception ex)

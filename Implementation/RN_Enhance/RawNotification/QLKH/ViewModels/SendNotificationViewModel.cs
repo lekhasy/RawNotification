@@ -108,5 +108,34 @@ namespace QLKH.ViewModels
             }
             
         }
+
+        public async Task CheckSend100times()
+        {
+            Queue<Task> taskQueue = new Queue<Task>();
+            for (int i = 0; i < 100; i++)
+            {
+                Task t = new Task(() =>
+                {
+                    try
+                    {
+                        using (var service = AppGlobal.getRNServerService())
+                        {
+                            var result = service.SendAllNotification();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                });
+                taskQueue.Enqueue(t);
+                t.Start();
+            }
+            while (taskQueue.Count>0)
+            {
+                await taskQueue.Dequeue();
+            }
+        }
+
     }
 }

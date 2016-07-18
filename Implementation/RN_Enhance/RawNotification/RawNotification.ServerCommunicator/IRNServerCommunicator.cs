@@ -9,7 +9,7 @@ namespace RawNotification.ServerCommunicator
     public interface IRNServerCommunicator
     {
         [OperationContract]
-        Task<BaseServiceResult> SendAllNotification();
+        BaseServiceResult SendAllNotification();
 
         [OperationContract]
         BaseServiceResult AddNotification(byte[] Notification, byte[] NotificationPreviewContent, IEnumerable<string> oldReceiverIdList);

@@ -4,3 +4,16 @@ Thêm demo trong phần kiểm thử của chương 5.
 Chương 2: sửa tên: cơ sở lý thuyết
 chia làm 2 phần:
 Thêm 1 phần Công nghệ được dùng.
+
+- Ghi rõ tên đề tài
+- Kết quả đạt được
+- VẼ các sơ đồ lớp của một số project chính vào.
+
+Tóm tắt báo cáo:
+- thêm 1.1: tên đề tài: chỉ có mình tên đề tài.
+ để lại C1, C7, tl tham khảo.
+CS lý thuyết để lại mình các tiêu đề.
+- lọc ra các đoạn chính, xóa hết các phần giải thích dài dòng.
+
+
+Tìm hiểu về Windows Notification Service (WNS) và xây dựng module gửi thông báo tới thiết bị di động sử dụng hệ điều hành Windows 10

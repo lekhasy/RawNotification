@@ -52,6 +52,9 @@
             this.btn_QLKH_Start = new System.Windows.Forms.Button();
             this.lbl_QLKH = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_QLKHApp_Start = new System.Windows.Forms.Button();
+            this.lbl_QLKHApp = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_ServerCmm_Start
@@ -94,7 +97,7 @@
             // 
             // btn_Restart
             // 
-            this.btn_Restart.Location = new System.Drawing.Point(357, 162);
+            this.btn_Restart.Location = new System.Drawing.Point(357, 195);
             this.btn_Restart.Name = "btn_Restart";
             this.btn_Restart.Size = new System.Drawing.Size(123, 23);
             this.btn_Restart.TabIndex = 4;
@@ -218,7 +221,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(219, 162);
+            this.button1.Location = new System.Drawing.Point(219, 195);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 23);
             this.button1.TabIndex = 16;
@@ -275,11 +278,43 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "QLKH Data Service";
             // 
+            // btn_QLKHApp_Start
+            // 
+            this.btn_QLKHApp_Start.Location = new System.Drawing.Point(219, 155);
+            this.btn_QLKHApp_Start.Name = "btn_QLKHApp_Start";
+            this.btn_QLKHApp_Start.Size = new System.Drawing.Size(75, 23);
+            this.btn_QLKHApp_Start.TabIndex = 24;
+            this.btn_QLKHApp_Start.Text = "Start";
+            this.btn_QLKHApp_Start.UseVisualStyleBackColor = true;
+            this.btn_QLKHApp_Start.Click += new System.EventHandler(this.btn_QLKHApp_Start_Click);
+            // 
+            // lbl_QLKHApp
+            // 
+            this.lbl_QLKHApp.AutoSize = true;
+            this.lbl_QLKHApp.ForeColor = System.Drawing.Color.Teal;
+            this.lbl_QLKHApp.Location = new System.Drawing.Point(145, 155);
+            this.lbl_QLKHApp.Name = "lbl_QLKHApp";
+            this.lbl_QLKHApp.Size = new System.Drawing.Size(54, 13);
+            this.lbl_QLKHApp.TabIndex = 23;
+            this.lbl_QLKHApp.Text = "Loading...";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "QLJH App";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 188);
+            this.ClientSize = new System.Drawing.Size(505, 230);
+            this.Controls.Add(this.btn_QLKHApp_Start);
+            this.Controls.Add(this.lbl_QLKHApp);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_QLKH_ViewLog);
             this.Controls.Add(this.btn_QLKH_Config);
             this.Controls.Add(this.btn_QLKH_Start);
@@ -335,6 +370,9 @@
         private System.Windows.Forms.Button btn_QLKH_Start;
         private System.Windows.Forms.Label lbl_QLKH;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_QLKHApp_Start;
+        private System.Windows.Forms.Label lbl_QLKHApp;
+        private System.Windows.Forms.Label label6;
     }
 }
 

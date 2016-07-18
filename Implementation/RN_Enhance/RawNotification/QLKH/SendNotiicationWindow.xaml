@@ -23,6 +23,7 @@
             <StackPanel Style="{StaticResource HorizontalStackpanel}">
                 <Button Content="Add" Style="{StaticResource FormContentMargin}" Width="93" IsEnabled="{Binding ElementName=txt_content, Path=Text, Converter={StaticResource NullOrEmptyStringToBooleanCoverter}}" Click="Button_Click"/>
                 <Button Content="Send All" Style="{StaticResource FormContentMargin}" Margin="4,4,4,0" Width="93" Click="Button_Click_1"/>
+                <Button Content="Send All Test" Style="{StaticResource FormContentMargin}" Margin="4,4,4,0" Width="93" Click="Button_Click_2"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

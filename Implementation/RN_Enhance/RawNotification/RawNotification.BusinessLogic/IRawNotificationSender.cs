@@ -8,6 +8,6 @@ namespace RawNotification.BusinessLogic
 {
     public interface IRawNotificationSender
     {
-        Task SendAllNotificationAsync();
+        void SendAllNotificationAsync();
     }
 }

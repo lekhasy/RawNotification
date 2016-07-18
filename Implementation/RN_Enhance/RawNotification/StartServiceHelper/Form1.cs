@@ -56,6 +56,10 @@ namespace StartServiceHelper
             status = model.QLKHDataService.GetStatus();
             lbl_QLKH.Text = status.ToString();
             lbl_QLKH.ForeColor = status.GetColor();
+
+            status = model.QLKHApp.GetStatus();
+            lbl_QLKHApp.Text = status.ToString();
+            lbl_QLKHApp.ForeColor = status.GetColor();
         }
 
         private void btn_ClientCmm_Start_Click(object sender, EventArgs e)
@@ -111,6 +115,11 @@ namespace StartServiceHelper
         private void btn_QLKH_ViewLog_Click(object sender, EventArgs e)
         {
             model.QLKHDataService.ViewLog();
+        }
+
+        private void btn_QLKHApp_Start_Click(object sender, EventArgs e)
+        {
+            model.QLKHApp.StartService();
         }
     }
 }
