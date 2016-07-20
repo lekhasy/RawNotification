@@ -99,49 +99,43 @@
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult1.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\Demo_LoginService\RawNotification.Models.xsd">
+    <None Include="Service References\Demo_LoginService\RawNotification.Models1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Demo_LoginService\service.wsdl" />
-    <None Include="Service References\Demo_LoginService\service.xsd">
+    <None Include="Service References\Demo_LoginService\service1.wsdl" />
+    <None Include="Service References\Demo_LoginService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Demo_LoginService\service1.xsd">
+    <None Include="Service References\Demo_LoginService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\QLKHDataService\Demo_UWP.QLKHDataService.KhachHangInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\QLKHDataService\QLKHDataService.xsd">
+    <None Include="Service References\QLKHDataService\QLKHDataService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QLKHDataService\RawNotification.Models.xsd">
+    <None Include="Service References\QLKHDataService\RawNotification.Models2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QLKHDataService\RawNotification.Models1.xsd">
+    <None Include="Service References\QLKHDataService\service1.wsdl" />
+    <None Include="Service References\QLKHDataService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QLKHDataService\service.wsdl" />
-    <None Include="Service References\QLKHDataService\service.xsd">
+    <None Include="Service References\QLKHDataService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\QLKHDataService\service1.xsd">
+    <None Include="Service References\RNServerService\Arrays1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\Arrays.xsd">
+    <None Include="Service References\RNServerService\RawNotification.Models2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\RawNotification.Models.xsd">
+    <None Include="Service References\RNServerService\service1.wsdl" />
+    <None Include="Service References\RNServerService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\RawNotification.Models1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RNServerService\service.wsdl" />
-    <None Include="Service References\RNServerService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\RNServerService\service1.xsd">
+    <None Include="Service References\RNServerService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

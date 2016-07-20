@@ -109,7 +109,7 @@ namespace Demo_UWP.RNServerService {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.NetTcpBinding_IRNServerCommunicator)) {
-                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:2694/RNServerService");
+                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:22694/RNServerService");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

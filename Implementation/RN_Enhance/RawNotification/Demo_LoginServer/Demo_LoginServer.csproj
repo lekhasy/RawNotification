@@ -90,6 +90,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\RawNotification.Models.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedServiceModels.BaseServiceResult.datasource" />
     <None Include="Properties\Settings.settings">
@@ -99,7 +100,7 @@
     <None Include="Service References\RNServerService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\RawNotification.SharedServiceModels.xsd">
+    <None Include="Service References\RNServerService\RawNotification.Models.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\RNServerService\service.wsdl" />

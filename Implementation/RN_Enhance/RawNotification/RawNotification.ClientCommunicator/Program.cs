@@ -69,7 +69,7 @@ namespace RawNotification.ClientCommunicator
                     serviceHost.Open();
 
                     // The service can now be accessed.
-                    Console.WriteLine("The RN Client Service is ready.");
+                    Console.WriteLine("The RN Client Service is ready. PORT : {0}", portNumber);
                     Console.WriteLine("Press <ENTER> to terminate service.");
                     Console.ReadLine();
                 }

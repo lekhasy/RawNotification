@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="tzf6UbdzkAcUzl2nf0OVki9Xf6A=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="N/Ia6kL1cdyeE35casbbG/sXLAA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IRNServerCommunicator">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IRNServerCommunicator" contract="RNServerService.IRNServerCommunicator" bindingType="netTcpBinding" address="net.tcp://localhost:2694/RNServerService" bindingConfiguration="NetTcpBinding_IRNServerCommunicator">
+    <endpoint name="NetTcpBinding_IRNServerCommunicator" contract="RNServerService.IRNServerCommunicator" bindingType="netTcpBinding" address="net.tcp://lekhasy.ddns.net:22694/RNServerService" bindingConfiguration="NetTcpBinding_IRNServerCommunicator">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:2694/RNServerService</serializedValue>
+          <serializedValue>net.tcp://lekhasy.ddns.net:22694/RNServerService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

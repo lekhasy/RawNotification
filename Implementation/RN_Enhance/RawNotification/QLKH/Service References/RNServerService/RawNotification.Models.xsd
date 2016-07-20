@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RawNotification.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RawNotification.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import namespace="RawNotification.Models" />
+  <xs:complexType name="BaseServiceResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusCode" type="tns:ResultStatusCodes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseServiceResult" nillable="true" type="tns:BaseServiceResult" />
   <xs:simpleType name="ResultStatusCodes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="OK">
@@ -86,7 +92,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="RawNotification.Models" base="q1:BaseServiceResult">
+      <xs:extension base="tns:BaseServiceResult">
         <xs:sequence>
           <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
         </xs:sequence>

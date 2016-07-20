@@ -105,20 +105,21 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <None Include="Properties\DataSources\RawNotification.Models.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedServiceModels.BaseServiceResult.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\RNClientService\RawNotification.SharedModels.DBModels.xsd">
+    <None Include="Service References\RNClientService\RawNotification.Models.DBModels.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNClientService\RawNotification.SharedServiceModels.xsd">
+    <None Include="Service References\RNClientService\RawNotification.Models.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNClientService\service.wsdl" />
-    <None Include="Service References\RNClientService\service.xsd">
+    <None Include="Service References\RNClientService\service1.wsdl" />
+    <None Include="Service References\RNClientService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNClientService\service1.xsd">
+    <None Include="Service References\RNClientService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -18,7 +18,6 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="RawNotification.Models" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/RawNotification.Models" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
@@ -89,9 +88,9 @@
   </wsdl:binding>
   <wsdl:service name="RNServerCommunicator">
     <wsdl:port name="NetTcpBinding_IRNServerCommunicator" binding="tns:NetTcpBinding_IRNServerCommunicator">
-      <soap12:address location="net.tcp://lekhasy.ddns.net:2694/RNServerService" />
+      <soap12:address location="net.tcp://lekhasy.ddns.net:22694/RNServerService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://lekhasy.ddns.net:2694/RNServerService</wsa10:Address>
+        <wsa10:Address>net.tcp://lekhasy.ddns.net:22694/RNServerService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

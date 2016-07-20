@@ -49,9 +49,9 @@
   </wsdl:binding>
   <wsdl:service name="LoginServer">
     <wsdl:port name="NetTcpBinding_ILoginServer" binding="tns:NetTcpBinding_ILoginServer">
-      <soap12:address location="net.tcp://lekhasy.ddns.net:2696/Demo_LoginService" />
+      <soap12:address location="net.tcp://lekhasy.ddns.net:22696/Demo_LoginService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://lekhasy.ddns.net:2696/Demo_LoginService</wsa10:Address>
+        <wsa10:Address>net.tcp://lekhasy.ddns.net:22696/Demo_LoginService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

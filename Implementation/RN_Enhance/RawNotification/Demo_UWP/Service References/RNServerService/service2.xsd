@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="RawNotification.Models" />
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/RawNotification.Models" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="SendAllNotification">
     <xs:complexType>
       <xs:sequence />
@@ -11,7 +10,7 @@
   <xs:element name="SendAllNotificationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="RawNotification.Models" minOccurs="0" name="SendAllNotificationResult" nillable="true" type="q1:BaseServiceResult" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="SendAllNotificationResult" nillable="true" type="q1:BaseServiceResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -27,7 +26,7 @@
   <xs:element name="AddNotificationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="RawNotification.Models" minOccurs="0" name="AddNotificationResult" nillable="true" type="q3:BaseServiceResult" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="AddNotificationResult" nillable="true" type="q3:BaseServiceResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

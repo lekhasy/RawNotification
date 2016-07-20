@@ -22,8 +22,8 @@ namespace RawNotification.ServerCommunicator
                 var baseAddress = new Uri(string.Format(address, hostName, portNumber));
 
                 // Create service host for the CalculatorService type and privide the base address
-                using (var serviceHost = new ServiceHost(typeof(RNServerCommunicator), baseAddress))
-                {
+                var serviceHost = new ServiceHost(typeof(RNServerCommunicator), baseAddress);
+                //using (var serviceHost = new ServiceHost(typeof(RNServerCommunicator), baseAddress)) {
                     var smb = serviceHost.Description.Behaviors.Find<ServiceMetadataBehavior>();
 
                     if (smb == null)
@@ -69,11 +69,11 @@ namespace RawNotification.ServerCommunicator
                     serviceHost.Open();
 
                     // The service can now be accessed.
-                    Console.WriteLine("The RN Server Service is ready.");
+                    Console.WriteLine("The RN Server Service is ready. PORT : {0}", portNumber);
                     Console.WriteLine("Press <ENTER> to terminate service.");
                     Console.WriteLine();
                     Console.ReadLine();
-                }
+                //}
             }
             catch (Exception ex)
             {

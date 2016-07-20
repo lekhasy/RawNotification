@@ -24,7 +24,7 @@ namespace Demo_UWP.QLKHDataService {
         
         private string NameField;
         
-        private bool? SelectedField;
+        private System.Nullable<bool> SelectedField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
@@ -53,7 +53,7 @@ namespace Demo_UWP.QLKHDataService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool? Selected {
+        public System.Nullable<bool> Selected {
             get {
                 return this.SelectedField;
             }
@@ -152,7 +152,7 @@ namespace Demo_UWP.QLKHDataService {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.NetTcpBinding_IQLKHDataService)) {
-                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:2697/QLKHDataService");
+                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:22697/QLKHDataService");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

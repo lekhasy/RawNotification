@@ -465,6 +465,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\RawNotification.Models.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedServiceModels.BaseServiceResult.datasource" />
     <None Include="Properties\Settings.settings">
@@ -472,17 +473,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="QLKH_TemporaryKey.pfx" />
-    <None Include="Service References\RNServerService\Arrays.xsd">
+    <None Include="Service References\RNServerService\Arrays1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\RawNotification.SharedServiceModels.xsd">
+    <None Include="Service References\RNServerService\RawNotification.Models.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\service.wsdl" />
-    <None Include="Service References\RNServerService\service.xsd">
+    <None Include="Service References\RNServerService\service1.wsdl" />
+    <None Include="Service References\RNServerService\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RNServerService\service1.xsd">
+    <None Include="Service References\RNServerService\service21.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

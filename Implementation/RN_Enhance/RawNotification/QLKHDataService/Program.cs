@@ -70,7 +70,7 @@ namespace QLKHDataService
                     serviceHost.Open();
 
                     // The service can now be accessed.
-                    Console.WriteLine("The QLKH Data Service is ready.");
+                    Console.WriteLine("The QLKH Data Service is ready. PORT : {0}", portNumber);
                     Console.WriteLine("Press <ENTER> to terminate service.");
                     Console.WriteLine();
                     Console.ReadLine();

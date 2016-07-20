@@ -116,7 +116,7 @@ namespace RawNotification.DotNetCoreDataProviders.RNClientService {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.NetTcpBinding_IRNClientCommunicator)) {
-                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:2695/RNClientService");
+                return new System.ServiceModel.EndpointAddress("net.tcp://lekhasy.ddns.net:22695/RNClientService");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
