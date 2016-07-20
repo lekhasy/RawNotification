@@ -17,6 +17,7 @@ namespace Demo_LoginServer
         {
             try
             {
+                
                 LoginDBDataContext db = new LoginDBDataContext();
                 var user = db.KhachHangs.FirstOrDefault(k => k.KhachHangID.ToString() == username && k.ConNguoi.MatKhau == password);
 
@@ -25,6 +26,7 @@ namespace Demo_LoginServer
                 using (var service = AppGlobal.getRNServerService())
                 {
                     var result = service.AddReceiver(user.KhachHangID.ToString());
+                    Logger.Info("Login " + username);
                     return result;
                 }
             } catch (Exception ex)
