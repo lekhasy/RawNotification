@@ -21,14 +21,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://lekhasy.ddns.net:22694/RNServerService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://192.168.220.1:22694/RNServerService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="a6bf4fb3-d64a-43dd-bdb8-4332be876c81" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:22694/RNServerService/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="27f5843d-d05c-4b3b-8897-6218e22140f4" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:22694/RNServerService/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="4d317c89-1003-4027-9e28-dd045ff16f67" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:22694/RNServerService/mex" />
-    <MetadataFile FileName="RawNotification.Models2.xsd" MetadataType="Schema" ID="f455ce45-bbdf-44d0-b6f6-3841affc2803" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:22694/RNServerService/mex" />
-    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="6f354b39-8554-45b2-bfee-497a4af81a42" SourceId="1" SourceUrl="net.tcp://lekhasy.ddns.net:22694/RNServerService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="a6bf4fb3-d64a-43dd-bdb8-4332be876c81" SourceId="1" SourceUrl="net.tcp://192.168.220.1:22694/RNServerService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="27f5843d-d05c-4b3b-8897-6218e22140f4" SourceId="1" SourceUrl="net.tcp://192.168.220.1:22694/RNServerService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="4d317c89-1003-4027-9e28-dd045ff16f67" SourceId="1" SourceUrl="net.tcp://192.168.220.1:22694/RNServerService/mex" />
+    <MetadataFile FileName="RawNotification.Models2.xsd" MetadataType="Schema" ID="f455ce45-bbdf-44d0-b6f6-3841affc2803" SourceId="1" SourceUrl="net.tcp://192.168.220.1:22694/RNServerService/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="6f354b39-8554-45b2-bfee-497a4af81a42" SourceId="1" SourceUrl="net.tcp://192.168.220.1:22694/RNServerService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

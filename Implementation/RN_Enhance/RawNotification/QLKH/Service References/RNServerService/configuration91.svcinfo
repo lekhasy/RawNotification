@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IRNServerCommunicator" contract="RNServerService.IRNServerCommunicator" bindingType="netTcpBinding" address="net.tcp://lekhasy.ddns.net:22694/RNServerService" bindingConfiguration="NetTcpBinding_IRNServerCommunicator">
+    <endpoint name="NetTcpBinding_IRNServerCommunicator" contract="RNServerService.IRNServerCommunicator" bindingType="netTcpBinding" address="net.tcp://192.168.220.1:22694/RNServerService" bindingConfiguration="NetTcpBinding_IRNServerCommunicator">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://lekhasy.ddns.net:22694/RNServerService</serializedValue>
+          <serializedValue>net.tcp://192.168.220.1:22694/RNServerService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
