@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RawNotification.BusinessLogic
 {
-    public interface IRawNotificationSender
+    public interface IRawNotificationSender: IDisposable
     {
         void SendAllNotificationAsync();
     }

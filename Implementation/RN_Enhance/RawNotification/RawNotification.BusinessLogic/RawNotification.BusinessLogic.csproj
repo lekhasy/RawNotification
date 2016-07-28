@@ -62,6 +62,7 @@
     <Compile Include="RawNotificationSenders\RNSImplements\WNSRNSender.cs" />
     <Compile Include="RawNotificationSenders\RNSImplements\WNSTokenAccess.cs" />
     <Compile Include="RawNotificationSenders\RNSInterfaces\IWNSRNSender.cs" />
+    <Compile Include="RNBusinessLogics.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RawNotification.DataAccess\RawNotification.DataAccess.csproj">

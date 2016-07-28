@@ -14,7 +14,7 @@ using RawNotification.Models.DBModels;
 
 namespace RawNotification.BusinessLogic
 {
-    public class RawNotificationSender : BaseServiceBL, IRawNotificationSender
+    internal class RawNotificationSender : BaseServiceBL, IRawNotificationSender
     {
         IWNSRNSender _WNSSender;
         public RawNotificationSender(WNSParameter wnsparameter) : base()

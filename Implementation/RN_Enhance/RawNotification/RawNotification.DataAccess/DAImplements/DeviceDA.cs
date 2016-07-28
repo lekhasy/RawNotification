@@ -42,6 +42,7 @@ namespace RawNotification.DataAccess.DAImplements
                     ipURI = deviceInfo.URI,
                     ipOSId = deviceInfo.OSId
                 }, commandType: CommandType.StoredProcedure, transaction: transaction);
+            deviceInfo.Id = getLastestIdentity();
         }
 
         /// <summary>

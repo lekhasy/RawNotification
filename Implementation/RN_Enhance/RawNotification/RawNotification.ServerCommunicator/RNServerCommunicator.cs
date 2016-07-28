@@ -17,7 +17,7 @@ namespace RawNotification.ServerCommunicator
         {
             try
             {
-                using (var notificationBL = new NotificationBL())
+                using (var notificationBL = RNBusinessLogics.GetNotificationBL())
                 {
                     notificationBL.AddNotification(NotificationContent, NotificationPreviewContent, oldReceiverIdList);
                     return new BaseServiceResult(ResultStatusCodes.OK, null);
@@ -34,7 +34,7 @@ namespace RawNotification.ServerCommunicator
             try
             {
                 var wnsParam = new WNSParameter(Settings.WNSPackageSID.Value, Settings.WNSSecretKey.Value, Settings.GetWNSToken, Settings.SetWNSToken);
-                using (var sender = new RawNotificationSender(wnsparameter: wnsParam))
+                using (var sender = RNBusinessLogics.GetRawNotificationSender(wnsParam))
                 {
                     sender.SendAllNotificationAsync();
                     return new BaseServiceResult( ResultStatusCodes.OK, null);
@@ -50,7 +50,7 @@ namespace RawNotification.ServerCommunicator
         {
             try
             {
-                using (var receiverBL = new ReceiverBL())
+                using (var receiverBL = RNBusinessLogics.GetReceiverBL())
                 {
                     return receiverBL.RegisterOrRenewToken(oldReceiverId, Settings.NewTokenPeriod.Value);
                 }

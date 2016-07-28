@@ -16,5 +16,9 @@ namespace RawNotification.Models.DBModels
         public string URI { get; set; }
         [DataMember]
         public int OSId { get; set; }
+        [DataMember]
+        public string DeviceToken { get; set; }
+        [DataMember]
+        public DateTime TokenExpiredTime { get; set; }
     }
 }

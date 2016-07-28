@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using RawNotification.BusinessLogic;
 using RawNotification.BusinessLogic.BLImplements;
 using RawNotification.BusinessLogic.BLInterfaces;
 using RawNotification.Models;
@@ -11,19 +12,19 @@ namespace RawNotification.ClientCommunicator
     public class RNClientCommunicator : IRNClientCommunicator
     {
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public BaseServiceResult<byte[]> GetNotificationContent(long NotificationId, string NotificationAccessKey, string ReceiverToken, long ReceiverId)
+        public BaseServiceResult<byte[]> GetNotificationContent(long NotificationId, string NotificationAccessKey, string DeviceToken, string DeviceIMEI)
         {
             try
             {
-                using (IReceiverBL ReceiverBL = new ReceiverBL())
+                using (var DeviceBL = RNBusinessLogics.GetDeviceBL())
                 {
-                    if (!ReceiverBL.CheckTokenValid(ReceiverToken, ReceiverId))
+                    if (!DeviceBL.CheckDeviceTokenValid(DeviceToken, DeviceIMEI))
                     {
                         return new BaseServiceResult<byte[]>(ResultStatusCodes.UnAuthorised, null);
                     }
                 }
 
-                using (var NotificationBL = new NotificationBL())
+                using (var NotificationBL = RNBusinessLogics.GetNotificationBL())
                 {
                     return NotificationBL.GetNotificationContent(NotificationId, NotificationAccessKey);
                 }
@@ -38,7 +39,7 @@ namespace RawNotification.ClientCommunicator
         {
             try
             {
-                using (INotificationBL NotificationBL = new NotificationBL())
+                using (INotificationBL NotificationBL = RNBusinessLogics.GetNotificationBL())
                 {
                      return NotificationBL.CheckIfNotificationRead(ReceiverNotificationID);
                 }
@@ -52,43 +53,37 @@ namespace RawNotification.ClientCommunicator
         // return StatusCodes: 
         // UnAuthorised: Invalid receiver Token
         // InternalServerError: Internal error
-        public BaseServiceResult AddDevice(long ReceiverId, Device deviceInfo, string ReceiverToken)
+        public BaseServiceResult<long, string> AddDevice(long ReceiverId, Device deviceInfo, string LoginToken)
         {
             try
             {
-                using (IReceiverBL ReceiverBL = new ReceiverBL())
+                using (var ReceiverBL = RNBusinessLogics.GetReceiverBL())
                 {
-                    if (!ReceiverBL.CheckTokenValid(ReceiverToken, ReceiverId))
+                    if (!ReceiverBL.CheckLoginTokenValid(LoginToken, ReceiverId))
                     {
-                        return new BaseServiceResult(ResultStatusCodes.UnAuthorised, null);
+                        return new BaseServiceResult<long, string>(ResultStatusCodes.UnAuthorised, 0, "");
                     }
                 }
 
-                using (var DeviceBL = new DeviceBL())
+                using (var DeviceBL = RNBusinessLogics.GetDeviceBL())
                 {
-                    return DeviceBL.AddDevice(deviceInfo);
+                    return DeviceBL.AddDevice(deviceInfo, Settings.NewDeviceTokenPeriod.Value);
                 }
             } catch(Exception ex)
             {
                 Logger.Error("AddDevice", ex);
-                return BaseServiceResult.InternalErrorResult;
+                return BaseServiceResult<long, string>.InternalErrorResult;
             }
         }
 
-        public BaseServiceResult RemoveDevice(string DeviceIMEI, long ReceiverId, string ReceiverToken)
+        public BaseServiceResult RemoveDevice(string DeviceIMEI, string DeviceToken)
         {
             try
             {
-                using (var ReceiverBL = new ReceiverBL())
+                using (var DeviceBL = RNBusinessLogics.GetDeviceBL())
                 {
-                    if (!ReceiverBL.CheckTokenValid(ReceiverToken, ReceiverId))
-                    {
+                    if (!DeviceBL.CheckDeviceTokenValid(DeviceToken, DeviceIMEI))
                         return new BaseServiceResult<byte[]>(ResultStatusCodes.UnAuthorised, null);
-                    }
-                }
-
-                using (IDeviceBL DeviceBL = new DeviceBL())
-                {
                     return DeviceBL.RemoveDeviceByIMEI(DeviceIMEI);
                 }
             } catch (Exception ex)

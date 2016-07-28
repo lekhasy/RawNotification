@@ -8,12 +8,12 @@ namespace RawNotification.ClientCommunicator
     public interface IRNClientCommunicator
     {
         [OperationContract]
-        BaseServiceResult AddDevice(long ReceiverId, Device deviceInfo, string ReceiverToken);
+        BaseServiceResult<long, string> AddDevice(long ReceiverId, Device deviceInfo, string LoginToken);
         [OperationContract]
-        BaseServiceResult<byte[]> GetNotificationContent(long NotificationId, string NotificationAccessKey, string ReceiverToken, long ReceiverId);
+        BaseServiceResult<byte[]> GetNotificationContent(long NotificationId, string NotificationAccessKey, string DeviceToken, string DeviceIMEI);
         [OperationContract]
         BaseServiceResult<bool> CheckIfNotificationRead(long ReceiverNotificationID);
         [OperationContract]
-        BaseServiceResult RemoveDevice(string DeviceIMEI, long ReceiverId, string ReceiverToken);
+        BaseServiceResult RemoveDevice(string DeviceIMEI, string DeviceToken);
     }
 }

@@ -8,7 +8,7 @@ using RawNotification.Models.DBModels;
 
 namespace RawNotification.BusinessLogic.BLImplements
 {
-    public class ReceiverBL : BaseServiceBL, BLInterfaces.IReceiverBL
+    internal class ReceiverBL : BaseServiceBL, BLInterfaces.IReceiverBL
     {
         public ReceiverBL() : base()
         {
@@ -33,15 +33,12 @@ namespace RawNotification.BusinessLogic.BLImplements
 
                 if (receiver == null)
                 {
-                    receiver = new Receiver { OldId = ReceiverOldID, TokenExpiredTime = DateTime.Now.Add(NewTokenPeriod), DeviceCount = 0, AccessToken = Token };
-                    DB.ReceiverDA.InsertReceiver(receiver);
+                    // receiver does not exists, insert new receiver and a token for that receiver
+                    receiver = new Receiver { OldId = ReceiverOldID, DeviceCount = 0};
+                    DB.ReceiverDA.InsertReceiver(receiver);    
                 }
-                else
-                {
-                    receiver.AccessToken = Token;
-                    receiver.TokenExpiredTime = DateTime.Now.Add(NewTokenPeriod);
-                    DB.ReceiverDA.UpdateReceiver(receiver);
-                }
+                LoginToken logintoken = new LoginToken { TokenExpiredTime = DateTime.Now.Add(NewTokenPeriod), AccessToken = Token, ReceiverId = receiver.Id };
+                DB.LoginTokenDA.InsertToken(logintoken);
 
                 DB.commit();
                 return new BaseServiceResult<string, long>(ResultStatusCodes.OK, Token, receiver.Id);
@@ -52,15 +49,17 @@ namespace RawNotification.BusinessLogic.BLImplements
             }
         }
 
-        public bool CheckTokenValid(string receiverToken, long ReceiverId)
+        public bool CheckLoginTokenValid(string receiverToken, long ReceiverId)
         {
             if (receiverToken == null)
                 return false;
-            Receiver receiver = DB.ReceiverDA.GetReceiverById(ReceiverId);
 
-            if (receiver != null && receiver.AccessToken != null && receiver.TokenExpiredTime != null &&
-                receiver.AccessToken == receiverToken && receiver.TokenExpiredTime >= DateTime.Now)
+            var ReceiverTokenList = DB.LoginTokenDA.GetTokensByReceiverId(ReceiverId);
+            var token = ReceiverTokenList.FirstOrDefault(tk => tk.AccessToken == receiverToken);
+
+            if (token != null)
             {
+                DB.LoginTokenDA.RemoveLoginTokenById(token.Id);
                 return true;
             }
             return false;

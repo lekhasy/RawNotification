@@ -9,7 +9,7 @@ using RawNotification.Models;
 
 namespace RawNotification.BusinessLogic.BLImplements
 {
-    public class DeviceBL : BaseServiceBL, BLInterfaces.IDeviceBL
+    internal class DeviceBL : BaseServiceBL, BLInterfaces.IDeviceBL
     {
         public DeviceBL() : base()
         {
@@ -18,25 +18,35 @@ namespace RawNotification.BusinessLogic.BLImplements
         public DeviceBL(IRawNotificationDB db) : base(db)
         {
         }
-
-        public BaseServiceResult AddDevice(Device deviceInfo)
+        
+        // retun Device Id and token of that device
+        public BaseServiceResult<long, string> AddDevice(Device deviceInfo, TimeSpan NewDeviceTokenPeriod)
         {
             try
             {
                 var receiver = DB.ReceiverDA.GetReceiverById(deviceInfo.ReceiverNewID);
-                if (receiver == null) return new BaseServiceResult(ResultStatusCodes.NotFound, "Receiver not found");
+                if (receiver == null) return new BaseServiceResult<long, string>(ResultStatusCodes.NotFound, 0, "", "Receiver not found");
 
+                string Token = Guid.NewGuid().ToString();
                 var Device = DB.DeviceDA.GetDeviceByIMEI(deviceInfo.IMEI);
 
+                deviceInfo.DeviceToken = Token;
+                deviceInfo.TokenExpiredTime = DateTime.Now.Add(NewDeviceTokenPeriod);
+
                 if (Device == null)
+                {
                     DB.DeviceDA.InsertDevice(deviceInfo);
+                }
                 else
                 {
-                    // just update URI is enought
+                    // just update URI and token is enought
                     if (deviceInfo.ReceiverNewID == Device.ReceiverNewID)
                     {
+                        // device still be used with same receiver
                         Device.OSId = deviceInfo.OSId;
                         Device.URI = deviceInfo.URI;
+                        Device.DeviceToken = Token;
+                        Device.TokenExpiredTime = DateTime.Now.Add(NewDeviceTokenPeriod);
                         DB.DeviceDA.UpdateDevice(Device);
                     }
                     else
@@ -48,12 +58,22 @@ namespace RawNotification.BusinessLogic.BLImplements
                 }
 
                 DB.commit();
-                return new BaseServiceResult(ResultStatusCodes.OK);
-            } catch (Exception ex)
+                return new BaseServiceResult<long, string>(ResultStatusCodes.OK, deviceInfo.Id, Token);
+            }
+            catch (Exception ex)
             {
                 _Logger.Error("Add Device", ex);
-                return BaseServiceResult.InternalErrorResult;
+                return BaseServiceResult<long, string>.InternalErrorResult;
             }
+        }
+
+        public bool CheckDeviceTokenValid(string DeviceToken, string DeviceIMEI)
+        {
+            if (DeviceToken == null) return false;
+
+            var Device = DB.DeviceDA.GetDeviceByIMEI(DeviceIMEI);
+            if (Device != null && Device.DeviceToken == DeviceIMEI) return true;
+            return false;
         }
 
         public BaseServiceResult RemoveDeviceByIMEI(string DeviceIMEI)
@@ -68,7 +88,8 @@ namespace RawNotification.BusinessLogic.BLImplements
                 DB.DeviceDA.DeleteDevice(device.Id, device.ReceiverNewID);
                 DB.commit();
                 return new BaseServiceResult(ResultStatusCodes.OK, null);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 _Logger.Error("Add Device", ex);
                 return BaseServiceResult.InternalErrorResult;

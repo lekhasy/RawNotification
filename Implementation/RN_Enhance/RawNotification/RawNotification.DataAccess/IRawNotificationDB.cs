@@ -10,8 +10,7 @@ namespace RawNotification.DataAccess
         IReceiverDA ReceiverDA { get; }
         IReceiverNotificationDA ReceiverNotificationDA { get; }
         IDeviceNotificationDA DeviceNotificationDA { get;}
-
-        System.Data.IDbTransaction gettransaction();
+        ILoginTokenDA LoginTokenDA { get; }
 
         void commit();
     }

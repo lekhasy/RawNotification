@@ -9,7 +9,8 @@ namespace RawNotification.BusinessLogic.BLInterfaces
 {
     public interface IDeviceBL : IBaseBL
     {
-        BaseServiceResult AddDevice(Device deviceInfo);
+        BaseServiceResult<long, string> AddDevice(Device deviceInfo, TimeSpan NewDeviceTokenPeriod);
         BaseServiceResult RemoveDeviceByIMEI(string DeviceIMEI);
+        bool CheckDeviceTokenValid(string DeviceToken, string DeviceIMEI);
     }
 }

@@ -54,7 +54,9 @@
     <Compile Include="BaseDA.cs" />
     <Compile Include="DAImplements\DeviceDA.cs" />
     <Compile Include="DAImplements\DeviceNotificationDA.cs" />
+    <Compile Include="DAImplements\LoginTokenDA.cs" />
     <Compile Include="DAImplements\ReceiverNotificationDA.cs" />
+    <Compile Include="DAInterfaces\ILoginTokenDA.cs" />
     <Compile Include="DAInterfaces\IReceiverNotificationDA.cs" />
     <Compile Include="DAImplements\NotificationDA.cs" />
     <Compile Include="DAImplements\ReceiverDA.cs" />

@@ -11,6 +11,6 @@ namespace RawNotification.BusinessLogic.BLInterfaces
     {
         IEnumerable<Receiver> GetAllReceiverByOldID(IEnumerable<string> oldReceiverIDList);
         BaseServiceResult<string, long> RegisterOrRenewToken(string ReceiverOldID, TimeSpan NewTokenPeriod);
-        bool CheckTokenValid(string receiverToken, long ReceiverId);
+        bool CheckLoginTokenValid(string receiverToken, long ReceiverId);
     }
 }

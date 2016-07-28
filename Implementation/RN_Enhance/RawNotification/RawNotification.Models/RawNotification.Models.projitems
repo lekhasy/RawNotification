@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DBModels\Device.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DBModels\DeviceNotification.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DBModels\EnumOperatingSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DBModels\LoginToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DBModels\Notification.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DBModels\Receiver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DBModels\ReceiverNotification.cs" />

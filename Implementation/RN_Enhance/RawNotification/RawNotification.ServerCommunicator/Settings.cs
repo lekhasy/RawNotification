@@ -21,6 +21,8 @@ namespace RawNotification.ServerCommunicator
             return new TimeSpan(TimeInHours, TimeInMinutes, TimeInSeconds);
         });
 
+       
+
         #region Service Section
         public static readonly Lazy<int> PortNumber = new Lazy<int>(() => {
             return int.Parse(ConfigurationManager.AppSettings["PortNumber"]);

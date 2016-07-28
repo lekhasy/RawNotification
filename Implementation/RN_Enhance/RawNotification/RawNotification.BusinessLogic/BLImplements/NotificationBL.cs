@@ -10,7 +10,7 @@ using RawNotification.Models.DBModels;
 
 namespace RawNotification.BusinessLogic.BLImplements
 {
-    public class NotificationBL : BaseServiceBL, BLInterfaces.INotificationBL
+    internal class NotificationBL : BaseServiceBL, BLInterfaces.INotificationBL
     {
         public NotificationBL() : base()
         {

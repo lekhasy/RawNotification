@@ -26,7 +26,6 @@ namespace RawNotification.DataAccess
             public const string RemoveDeviceProcName = "RemoveDevice";
             public const string RemoveDeviceByIMEIProcName = "RemoveDevice";
             public const string RemoveAllReceiverHaveNoDeviceProcName = "RemoveAllReceiverHaveNoDevice";
-            public const string RegisterOrRenewTokenProcName = "RegisterOrRenewToken";
             public const string InsertDeviceProcname = "InsertDevice";
         }
 
@@ -49,6 +48,8 @@ namespace RawNotification.DataAccess
         private IDeviceNotificationDA _DeviceNotificationDA;
 
         private IReceiverNotificationDA _ReceiverNotificationDA;
+
+        private ILoginTokenDA _LoginTokenDA;
 
         #endregion
 
@@ -78,6 +79,11 @@ namespace RawNotification.DataAccess
         public IDeviceNotificationDA DeviceNotificationDA
         {
             get { return _DeviceNotificationDA ?? (_DeviceNotificationDA = new DeviceNotificationDA(mTransaction)); }
+        }
+
+        public ILoginTokenDA LoginTokenDA
+        {
+            get { return _LoginTokenDA ?? (_LoginTokenDA = new LoginTokenDA(mTransaction)); }
         }
         #endregion
 
@@ -116,6 +122,7 @@ namespace RawNotification.DataAccess
             _ReceiverDA = null;
             _DeviceNotificationDA = null;
             _ReceiverNotificationDA = null;
+            _LoginTokenDA = null;
         }
         
         /// <summary>
@@ -171,11 +178,6 @@ namespace RawNotification.DataAccess
                                 );
 
             return new SqlConnection(strConnection);
-        }
-
-        public IDbTransaction gettransaction()
-        {
-            return this.mTransaction;
         }
     }
 }
