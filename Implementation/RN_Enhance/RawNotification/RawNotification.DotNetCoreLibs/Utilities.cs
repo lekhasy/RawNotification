@@ -81,11 +81,5 @@ namespace RawNotification.DotNetCoreBL
             builder.Register();
             #endregion
         }
-
-
-        internal static string GetDeviceIMEI()
-        {
-            return new Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation().Id.ToString();
-        }
     }
 }

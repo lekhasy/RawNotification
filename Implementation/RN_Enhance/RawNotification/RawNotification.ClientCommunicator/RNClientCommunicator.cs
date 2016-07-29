@@ -58,18 +58,31 @@ namespace RawNotification.ClientCommunicator
             try
             {
                 using (var ReceiverBL = RNBusinessLogics.GetReceiverBL())
-                {
                     if (!ReceiverBL.CheckLoginTokenValid(LoginToken, ReceiverId))
-                    {
                         return new BaseServiceResult<long, string>(ResultStatusCodes.UnAuthorised, 0, "");
-                    }
-                }
 
                 using (var DeviceBL = RNBusinessLogics.GetDeviceBL())
-                {
                     return DeviceBL.AddDevice(deviceInfo, Settings.NewDeviceTokenPeriod.Value);
-                }
+
             } catch(Exception ex)
+            {
+                Logger.Error("AddDevice", ex);
+                return BaseServiceResult<long, string>.InternalErrorResult;
+            }
+        }
+
+        public BaseServiceResult<long, string> UpdateDeviceInfo(Device deviceInfo, string DeviceIMEI, string DeviceToken)
+        {
+            try
+            {
+                using (var DeviceBL = RNBusinessLogics.GetDeviceBL())
+                    if (!DeviceBL.CheckDeviceTokenValid(DeviceToken, DeviceIMEI))
+                        return new BaseServiceResult<long, string>(ResultStatusCodes.UnAuthorised, 0, "");
+
+                using (var DeviceBL = RNBusinessLogics.GetDeviceBL())
+                    return DeviceBL.AddDevice(deviceInfo, Settings.NewDeviceTokenPeriod.Value);
+            }
+            catch (Exception ex)
             {
                 Logger.Error("AddDevice", ex);
                 return BaseServiceResult<long, string>.InternalErrorResult;

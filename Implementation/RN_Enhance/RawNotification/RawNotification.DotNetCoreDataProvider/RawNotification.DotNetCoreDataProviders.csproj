@@ -109,6 +109,9 @@
     <None Include="Properties\DataSources\RawNotification.SharedModels.BaseServiceResult.datasource" />
     <None Include="Properties\DataSources\RawNotification.SharedServiceModels.BaseServiceResult.datasource" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\RNClientService\RawNotification.DotNetCoreDataProviders.RNClientService.BaseServiceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RNClientService\RawNotification.Models.DBModels.xsd">
       <SubType>Designer</SubType>
     </None>

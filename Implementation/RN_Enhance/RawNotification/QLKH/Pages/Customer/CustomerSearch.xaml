@@ -57,6 +57,8 @@
                 </DataGridTemplateColumn>
                 <mui:DataGridTextColumn  Header="Địa Chỉ" IsReadOnly="{Binding DataContext.IsEditable, Source={x:Reference CanEditRows}}"
                                          Binding="{Binding ConNguoi.DiaChi}"/>
+                <mui:DataGridTextColumn Header="Pasword" IsReadOnly="{Binding DataContext.IsEditable, Source={x:Reference CanEditRows}}"
+                                        Binding="{Binding ConNguoi.MatKhau}"/>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -11,6 +11,8 @@ namespace QLKH.ViewModels
 {
     public class CustomerAddViewModel : SuperViewModel
     {
+        private const string DEFAULT_PASSWORD = "123";
+
         #region Attributes
         Models.KhachHang KhachHang = new Models.KhachHang();
         public ObservableCollection<Models.NguoiThan> nguoithan = new ObservableCollection<Models.NguoiThan>();
@@ -80,7 +82,7 @@ namespace QLKH.ViewModels
             string phone1, string phone2, string CMND, string email)
         {
             KhachHang.ConNguoi = new Models.ConNguoi { HoTen = name, DiaChi = address, GioiTinh = gioitinh,
-                NgaySinh = ngaysinh, Phone = phone1, Phone2 = phone2, CMND = CMND, Email = email };
+                NgaySinh = ngaysinh, Phone = phone1, Phone2 = phone2, CMND = CMND, Email = email, MatKhau = DEFAULT_PASSWORD };
             db.KhachHangs.InsertOnSubmit(KhachHang);
             try
             {

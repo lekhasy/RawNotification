@@ -19,7 +19,7 @@ namespace RawNotification.DotNetCoreBGTasks
             BackgroundTaskDeferral defferal = taskInstance.GetDeferral();
             try
             {
-                //await DotNetCoreBL.RNAdapter.SendDeviceInfoToServerAsync();
+                await DotNetCoreBLCore.RNAdapterCore.UpdateDeviceInfoAsync();
             } finally
             {
                 defferal.Complete();

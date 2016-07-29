@@ -60,6 +60,7 @@ namespace RawNotification.BusinessLogic.BLImplements
             if (token != null)
             {
                 DB.LoginTokenDA.RemoveLoginTokenById(token.Id);
+                DB.commit();
                 return true;
             }
             return false;

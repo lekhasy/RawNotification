@@ -20,6 +20,19 @@ namespace RawNotification.DotNetCoreBLCore
             }
         }
 
+        public static string DeviceToken
+        {
+            get
+            {
+                return GetValue<string>("RN_Device_Token");
+            }
+
+            set
+            {
+                SetValue("RN_Device_Token", value);
+            }
+        }
+
 
         public static long PrevUserId
         {

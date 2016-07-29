@@ -72,7 +72,7 @@ namespace RawNotification.BusinessLogic.BLImplements
             if (DeviceToken == null) return false;
 
             var Device = DB.DeviceDA.GetDeviceByIMEI(DeviceIMEI);
-            if (Device != null && Device.DeviceToken == DeviceIMEI) return true;
+            if (Device != null && Device.DeviceToken == DeviceToken) return true;
             return false;
         }
 

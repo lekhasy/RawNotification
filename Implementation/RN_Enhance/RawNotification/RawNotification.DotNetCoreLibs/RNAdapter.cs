@@ -97,11 +97,19 @@ namespace RawNotification.DotNetCoreBL
             }
             try
             {
-                if (DotNetCoreBLCore.RNAdapterCore.NotificationReceived == null)
+                if (RNAdapterCore.NotificationReceived == null)
                 {
                     RNAdapterCore.NotificationReceived += FireNotificationReceivedEvent;
                 }
-                return await DotNetCoreBLCore.RNAdapterCore.SendDeviceInfoToServerAsync();
+                if (Token == null)
+                {
+                    return await RNAdapterCore.UpdateDeviceInfoAsync();
+                }
+                else;
+                {
+                    return await RNAdapterCore.SendDeviceInfoToServerAsync();
+                }
+                
             }
             finally
             {
@@ -120,7 +128,7 @@ namespace RawNotification.DotNetCoreBL
 
         public static async Task Logout(bool keepData)
         {
-            await RNAdapterCore.Logout(keepData, Utilities.GetDeviceIMEI());
+            await RNAdapterCore.Logout(keepData, DotNetCoreLibs.DeviceInfo.GetDeviceIMEI());
         }
     }
 }

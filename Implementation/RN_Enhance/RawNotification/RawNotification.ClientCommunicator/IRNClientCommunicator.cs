@@ -10,6 +10,8 @@ namespace RawNotification.ClientCommunicator
         [OperationContract]
         BaseServiceResult<long, string> AddDevice(long ReceiverId, Device deviceInfo, string LoginToken);
         [OperationContract]
+        BaseServiceResult<long, string> UpdateDeviceInfo(Device deviceInfo, string DeviceIMEI, string DeviceToken);
+        [OperationContract]
         BaseServiceResult<byte[]> GetNotificationContent(long NotificationId, string NotificationAccessKey, string DeviceToken, string DeviceIMEI);
         [OperationContract]
         BaseServiceResult<bool> CheckIfNotificationRead(long ReceiverNotificationID);

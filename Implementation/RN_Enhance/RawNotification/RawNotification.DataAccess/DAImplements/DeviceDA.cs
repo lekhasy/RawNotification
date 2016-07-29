@@ -40,7 +40,9 @@ namespace RawNotification.DataAccess.DAImplements
                     ipReceiverNewID = deviceInfo.ReceiverNewID,
                     ipIMEI = deviceInfo.IMEI,
                     ipURI = deviceInfo.URI,
-                    ipOSId = deviceInfo.OSId
+                    ipOSId = deviceInfo.OSId,
+                    ipTokenExpiredTime = deviceInfo.TokenExpiredTime,
+                    ipDeviceToken = deviceInfo.DeviceToken
                 }, commandType: CommandType.StoredProcedure, transaction: transaction);
             deviceInfo.Id = getLastestIdentity();
         }

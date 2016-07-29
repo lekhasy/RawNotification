@@ -12,6 +12,7 @@ using RawNotification.Models;
 using Windows.Networking.PushNotifications;
 using RawNotification.Models.ServerBusinessModels.Exceptions;
 using System.Threading;
+using RawNotification.DotNetCoreLibs;
 
 namespace RawNotification.DotNetCoreBLCore
 {
@@ -28,7 +29,7 @@ namespace RawNotification.DotNetCoreBLCore
             byte[] data = await (await DAProvider.GetNotifiInfoDataProviderAsync()).GetNotificationContentAsync(NotificationId);
             if (data == null)
             {
-                var result = (await DAProvider.GetServiceProviderAsync().GetNotificationContentAsync(NotificationId, NotificationAccessKey, Settings.UserNewId, Settings.Token));
+                var result = (await DAProvider.GetServiceProviderAsync().GetNotificationContentAsync(NotificationId, NotificationAccessKey,  Settings.DeviceToken, DeviceInfo.GetDeviceIMEI()));
                 data = result.Data;
                 result.FireMessageExceptionForServiceResult();
                 // no exception occurred
@@ -56,6 +57,26 @@ namespace RawNotification.DotNetCoreBLCore
             try
             {
                 var result = await DAProvider.GetServiceProviderAsync().AddDeviceAsync(Settings.UserNewId, GetDeviceInfo(_CurrentChannel), Settings.Token);
+                Settings.DeviceToken = result.DataT1;
+                return result;
+            }
+            catch (Exception)
+            {
+
+            }
+            return null;
+        }
+
+        public static async Task<BaseServiceResult> UpdateDeviceInfoAsync()
+        {
+            // Initialize Notification Channel
+            await RenewChannelAsync();
+            _CurrentChannel.PushNotificationReceived += _CurrentChannel_PushNotificationReceived;
+            // Send Device Info to RN
+            try
+            {
+                var result = await DAProvider.GetServiceProviderAsync().UpdateDeviceInfoAsync(GetDeviceInfo(_CurrentChannel), DeviceInfo.GetDeviceIMEI(), Settings.DeviceToken);
+                Settings.DeviceToken = result.DataT1;
                 return result;
             }
             catch (Exception)
@@ -129,11 +150,12 @@ namespace RawNotification.DotNetCoreBLCore
             {
                 if (!keepData)
                     await(await DAProvider.GetNotifiInfoDataProviderAsync()).RemoveAllData();
-                await DAProvider.GetServiceProviderAsync().LogoutAsync(IMEI, Settings.UserNewId, Settings.Token);
+                await DAProvider.GetServiceProviderAsync().LogoutAsync(IMEI, Settings.DeviceToken);
             }
             catch { }
             finally
             {
+                Settings.DeviceToken = null;
                 Settings.Token = null;
                 Settings.UserNewId = 0;
             }

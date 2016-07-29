@@ -4,9 +4,11 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseModel">
         <xs:sequence>
+          <xs:element minOccurs="0" name="DeviceToken" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IMEI" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OSId" type="xs:int" />
           <xs:element minOccurs="0" name="ReceiverNewID" type="xs:long" />
+          <xs:element minOccurs="0" name="TokenExpiredTime" type="xs:dateTime" />
           <xs:element minOccurs="0" name="URI" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>

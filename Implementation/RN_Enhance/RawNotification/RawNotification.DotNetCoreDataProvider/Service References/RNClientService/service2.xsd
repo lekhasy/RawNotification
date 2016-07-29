@@ -7,14 +7,30 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="ReceiverId" type="xs:long" />
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RawNotification.Models.DBModels" minOccurs="0" name="deviceInfo" nillable="true" type="q1:Device" />
-        <xs:element minOccurs="0" name="ReceiverToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddDeviceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="AddDeviceResult" nillable="true" type="q2:BaseServiceResult" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="AddDeviceResult" nillable="true" type="q2:BaseServiceResultOflongstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDeviceInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RawNotification.Models.DBModels" minOccurs="0" name="deviceInfo" nillable="true" type="q3:Device" />
+        <xs:element minOccurs="0" name="DeviceIMEI" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DeviceToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDeviceInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="UpdateDeviceInfoResult" nillable="true" type="q4:BaseServiceResultOflongstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -23,15 +39,15 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="NotificationId" type="xs:long" />
         <xs:element minOccurs="0" name="NotificationAccessKey" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ReceiverToken" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ReceiverId" type="xs:long" />
+        <xs:element minOccurs="0" name="DeviceToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DeviceIMEI" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetNotificationContentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="GetNotificationContentResult" nillable="true" type="q3:BaseServiceResultOfbase64Binary" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="GetNotificationContentResult" nillable="true" type="q5:BaseServiceResultOfbase64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -45,7 +61,7 @@
   <xs:element name="CheckIfNotificationReadResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="CheckIfNotificationReadResult" nillable="true" type="q4:BaseServiceResultOfboolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="CheckIfNotificationReadResult" nillable="true" type="q6:BaseServiceResultOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -53,15 +69,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DeviceIMEI" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ReceiverId" type="xs:long" />
-        <xs:element minOccurs="0" name="ReceiverToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DeviceToken" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveDeviceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="RemoveDeviceResult" nillable="true" type="q5:BaseServiceResult" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/RawNotification.Models" minOccurs="0" name="RemoveDeviceResult" nillable="true" type="q7:BaseServiceResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
