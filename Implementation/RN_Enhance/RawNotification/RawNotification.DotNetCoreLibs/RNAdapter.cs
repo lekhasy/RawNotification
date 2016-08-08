@@ -128,6 +128,8 @@ namespace RawNotification.DotNetCoreBL
 
         public static async Task Logout(bool keepData)
         {
+            Utilities.UnRegisterNotificationBackgroundTask();
+            Utilities.UnRegisterTimerBackgroundTask();
             await RNAdapterCore.Logout(keepData, DotNetCoreLibs.DeviceInfo.GetDeviceIMEI());
         }
     }

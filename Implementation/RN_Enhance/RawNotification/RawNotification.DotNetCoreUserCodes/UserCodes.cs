@@ -14,7 +14,7 @@ namespace RawNotification.DotNetCoreUserCodes
         {
             SharedLibs.JSONObjectSerializer<string> serializer = new SharedLibs.JSONObjectSerializer<string>();
             string content = serializer.BytesToObject(args.NotificationPreviewContent);
-            DotNetCoreLibs.ToastNotificationHelper.Show("New Notification received in BG", content);
+            DotNetCoreLibs.ToastNotificationHelper.Show("New Notification from BDU", content);
         }
     }
 }

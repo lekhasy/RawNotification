@@ -13,11 +13,11 @@ namespace RawNotification.DotNetCoreBL
     {
         private const string NOTIFICATION_BACKGROUND_TASK_NAME = "RawNotification_RawReceiverBG";
 
-        public static string NOTIFICATION_BACKGROUND_TASK_ENTRY_POINT = typeof(DotNetCoreBGTasks.RawReceiverBackgroundTask).FullName;
+        public static readonly string NOTIFICATION_BACKGROUND_TASK_ENTRY_POINT = typeof(DotNetCoreBGTasks.RawReceiverBackgroundTask).FullName;
 
         private const string TIMER_REGISTER_BACKGROUND_TASK_NAME = "RawNotification_TimerRegisterBG";
 
-        public static string TIMER_REGISTER_BACKGROUND_TASK_ENTRY_POINT = typeof(DotNetCoreBGTasks.TimerRegisterBackgroundTask).FullName;
+        public static readonly string TIMER_REGISTER_BACKGROUND_TASK_ENTRY_POINT = typeof(DotNetCoreBGTasks.TimerRegisterBackgroundTask).FullName;
 
         internal static void RegisterNotificationBackgroundTask()
         {
@@ -25,6 +25,16 @@ namespace RawNotification.DotNetCoreBL
                NOTIFICATION_BACKGROUND_TASK_NAME,
                NOTIFICATION_BACKGROUND_TASK_ENTRY_POINT,
                new List<IBackgroundTrigger>() { new PushNotificationTrigger() }, null);
+        }
+
+        internal static void UnRegisterNotificationBackgroundTask()
+        {
+            _UnregisterBackgroundTask(NOTIFICATION_BACKGROUND_TASK_NAME);
+        }
+
+        internal static void UnRegisterTimerBackgroundTask()
+        {
+            _UnregisterBackgroundTask(TIMER_REGISTER_BACKGROUND_TASK_NAME);
         }
 
         internal static void RegisterTimerBackgroundTask(TimeSpan interval)
@@ -55,7 +65,7 @@ namespace RawNotification.DotNetCoreBL
                 if (item.Value.Name == name)
                 {
                     // background task với tên này đã được đăng kí trước đó nên không cần đăng ký lại nữa
-                    item.Value.Unregister(true);
+                    return;
                 }
             }
 
@@ -80,6 +90,22 @@ namespace RawNotification.DotNetCoreBL
 
             builder.Register();
             #endregion
+        }
+
+        private static void _UnregisterBackgroundTask(string name)
+        {
+            var iter = BackgroundTaskRegistration.AllTasks;
+
+            // kiểm tra lần lượt xem Background task với tên này đã được đăng kí trước đó hay chưa
+
+            foreach (var item in iter)
+            {
+                if (item.Value.Name == name)
+                {
+                    // hủy đăng ký background task
+                    item.Value.Unregister(true);
+                }
+            }
         }
     }
 }
