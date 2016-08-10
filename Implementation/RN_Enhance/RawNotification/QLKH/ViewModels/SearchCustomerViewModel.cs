@@ -53,7 +53,7 @@ namespace QLKH.ViewModels
                 searchresult = value;
                 searchresult.CollectionChanged += (o, e) =>
                   {
-                      if (e.Action== System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
+                      if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
                       {
                           foreach (var item in e.OldItems)
                           {
@@ -105,7 +105,7 @@ namespace QLKH.ViewModels
                     SearchResult = new ObservableCollection<Models.KhachHang>(db.KhachHangs.Where(kh => kh.ConNguoi.DiaChi.ToLower().Contains(Key) || kh.ConNguoi.HoTen.ToLower().Contains(Key)));
                     SearchProgresBarVisibility = Visibility.Hidden;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     FireHandledExeptionAndLogErorrAsync(ErrorTemplates.GetDBInteractionError(ex));
                 }
@@ -119,9 +119,90 @@ namespace QLKH.ViewModels
         {
             try
             {
+
+                List<int> changedlistId = new List<int>();
+
+                foreach (var item in db.GetChangeSet().Updates)
+                    changedlistId.Add((item as Models.ConNguoi).ConNguoiID);
+
+                Models.DBDataContext DBnew = new Models.DBDataContext();
+                IEnumerable<Models.ConNguoi> beforeList = DBnew.ConNguois.Where(c => changedlistId.Contains(c.ConNguoiID));
+                int length = beforeList.Count();
+
                 db.SubmitChanges();
+
+                IEnumerable<Models.ConNguoi> afterList = db.ConNguois.Where(c => changedlistId.Contains(c.ConNguoiID));
+                Dictionary<string, string> sendList = new Dictionary<string, string>();
+
+                for (int i = 0; i < length; i++)
+                {
+                    StringBuilder builder = new StringBuilder();
+
+                    Models.ConNguoi entity_bf = beforeList.ElementAt(i);
+                    Models.ConNguoi entity_after = afterList.ElementAt(i);
+
+                    if (entity_bf.CMND != entity_after.CMND)
+                        builder.AppendLine("CMND: " + entity_after.CMND);
+
+                    if (entity_bf.DiaChi != entity_after.DiaChi)
+                        builder.AppendLine("Địa chỉ: " + entity_after.DiaChi);
+
+                    if (entity_bf.Email != entity_after.Email)
+                        builder.AppendLine("Email: " + entity_after.Email);
+
+                    if (entity_bf.GioiTinh.Value != entity_after.GioiTinh.Value)
+                        builder.AppendLine("Giới tính: " + (entity_after.GioiTinh.Value == true ? "Nam" : "Nữ"));
+
+                    if (entity_bf.HoTen != entity_after.HoTen)
+                        builder.AppendLine("Họ tên: " + entity_after.HoTen);
+
+                    if (entity_bf.NgaySinh.Value != entity_after.NgaySinh.Value)
+                        builder.AppendLine("Ngày sinh: " + entity_after.NgaySinh.Value.ToShortDateString());
+
+                    if (entity_bf.Phone != entity_after.Phone)
+                        builder.AppendLine("Phone: " + entity_after.Phone);
+
+                    if (entity_bf.Phone2 != entity_after.Phone2)
+                        builder.AppendLine("Phone 2: " + entity_after.Phone2);
+
+                    string sendData = builder.ToString().Trim();
+
+                    sendList.Add(entity_bf.KhachHangs.First().KhachHangID.ToString(), sendData);
+                }
+
+                using (var service = AppGlobal.getRNServerService())
+                {
+                    RawNotification.SharedLibs.JSONObjectSerializer<string> serializer = new RawNotification.SharedLibs.JSONObjectSerializer<string>();
+
+                    foreach (var item in sendList)
+                    {
+                        var result = service.AddNotification
+                        (
+                        serializer.ObjectToBytes(item.Value),
+                        serializer.ObjectToBytes("Hồ sơ của bạn đã được cập nhật"),
+                        new string[] { item.Key }
+                        );
+
+                        if (result.StatusCode != RawNotification.Models.ResultStatusCodes.OK)
+                        {
+                            throw new Exception(result.Message);
+                        }
+                    }
+
+                    var sendResult = service.SendAllNotification();
+
+                    if (sendResult.StatusCode != RawNotification.Models.ResultStatusCodes.OK)
+                    {
+                        throw new Exception(sendResult.Message);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sending notification successfull", "Success");
+                    }
+                }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FireHandledExeptionAndLogErorrAsync(ErrorTemplates.GetDBInteractionError(ex));
             }

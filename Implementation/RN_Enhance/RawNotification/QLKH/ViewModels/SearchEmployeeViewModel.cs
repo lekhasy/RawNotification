@@ -91,7 +91,87 @@ namespace QLKH.ViewModels
         {
             try
             {
+                IEnumerable<Models.ConNguoi> changedentity = db.GetChangeSet().Updates as IEnumerable<Models.ConNguoi>;
+                IEnumerable<Models.ConNguoi> before = from c in db.ConNguois
+                                                      where changedentity.Any(ce => ce.ConNguoiID == c.ConNguoiID)
+                                                      select c;
+
                 db.SubmitChanges();
+
+                IEnumerable<Models.ConNguoi> after = from c in db.ConNguois
+                                                     where changedentity.Any(ce => ce.ConNguoiID == c.ConNguoiID)
+                                                     select c;
+
+                Dictionary<string, string> senddata = new Dictionary<string, string>();
+
+                for (int i = 0; i < changedentity.Count(); i++)
+                {
+                    StringBuilder builder = new StringBuilder();
+
+                    Models.ConNguoi bf_enitty = before.ElementAt(i);
+                    Models.ConNguoi af_entity = after.ElementAt(i);
+
+                    #region Build string
+                    if (bf_enitty.CMND != af_entity.CMND)
+                        builder.AppendLine("CMND: " + af_entity.CMND);
+
+                    if (bf_enitty.DiaChi != af_entity.DiaChi)
+                        builder.AppendLine("Địa chỉ: " + af_entity.DiaChi);
+
+                    if (bf_enitty.Email != af_entity.Email)
+                        builder.AppendLine("Email: " + af_entity.Email);
+
+                    if (bf_enitty.GioiTinh != af_entity.GioiTinh)
+                        builder.AppendLine("Giới tính: " + (af_entity.GioiTinh.Value == true ? "Nam" : "Nữ"));
+
+                    if (bf_enitty.HoTen != af_entity.HoTen)
+                        builder.AppendLine("Họ tên: " + af_entity.HoTen);
+
+                    if (bf_enitty.NgaySinh != af_entity.NgaySinh)
+                        builder.AppendLine("Ngày sinh: " + af_entity.NgaySinh.Value.ToShortDateString());
+
+                    if (bf_enitty.Phone != af_entity.Phone)
+                        builder.AppendLine("Phone: " + af_entity.Phone);
+
+                    if (bf_enitty.Phone2 != af_entity.Phone2)
+                        builder.AppendLine("Phone 2: " + af_entity.Phone2);
+                    #endregion
+
+                    string sendcontent = builder.ToString().Trim();
+
+                    senddata.Add(af_entity.KhachHangs.First().KhachHangID.ToString(), sendcontent);
+                }
+
+
+                using (var service = AppGlobal.getRNServerService())
+                {
+                    RawNotification.SharedLibs.JSONObjectSerializer<string> serializer = new RawNotification.SharedLibs.JSONObjectSerializer<string>();
+                    foreach (var item in senddata)
+                    {
+                        var result = service.AddNotification
+                            (
+                            serializer.ObjectToBytes(item.Value),
+                            serializer.ObjectToBytes("Hồ sơ của bạn đã được thay đổi"),
+                            new string[] { item.Key }
+                            );
+
+                        if (result.StatusCode != RawNotification.Models.ResultStatusCodes.OK)
+                        {
+                            throw new Exception(result.Message);
+                        }
+                    }
+
+                    var sendresult = service.SendAllNotification();
+
+                    if (sendresult.StatusCode != RawNotification.Models.ResultStatusCodes.OK)
+                    {
+                        throw new Exception(sendresult.Message);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sending notification successfull", "Success");
+                    }
+                }
             }
             catch (Exception ex)
             {
