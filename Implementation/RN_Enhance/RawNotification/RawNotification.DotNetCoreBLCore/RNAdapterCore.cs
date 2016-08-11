@@ -136,7 +136,7 @@ namespace RawNotification.DotNetCoreBLCore
         internal static Device GetDeviceInfo(PushNotificationChannel channel)
         {
             Device rtDevice = new Device();
-            rtDevice.IMEI = new Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation().Id.ToString();
+            rtDevice.IMEI = DeviceInfo.GetDeviceIMEI(); //new Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation().Id.ToString();
             rtDevice.OSId = (int)EnumOperatingSystem.Windows;
 
             rtDevice.URI = channel.Uri;

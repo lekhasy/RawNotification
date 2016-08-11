@@ -13,24 +13,26 @@
         </Grid.RowDefinitions>
         <StackPanel MinWidth="200" Grid.Row="0">
             <TextBlock Text="Tìm kiếm khách hàng" Style="{StaticResource Heading2}" />
-            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
-                <Label Width="88" Content="Từ khóa: " Margin="20,0,0,0" Target="{Binding ElementName=txt_search}" VerticalAlignment="Center"/>
-                <TextBox x:Name="txt_search" Width="200" Height="30"/>
-                <mui:ModernButton Click="ModernButton_Click" Style="{StaticResource ModernButtonGereralStyle}" 
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                    <Label Width="88" Content="Từ khóa: " Margin="20,0,0,0" Target="{Binding ElementName=txt_search}" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txt_search" Width="200" Height="30"/>
+                    <mui:ModernButton Click="ModernButton_Click" Style="{StaticResource ModernButtonGereralStyle}" 
                                   IconData="{StaticResource SearchIcon}"/>
-                <mui:ModernButton Click="ModernButton_Click_1" Visibility="{Binding CanAddGift, Converter={StaticResource CollapseBolleanToVisibilityConverter}}"
+                    <mui:ModernButton Click="ModernButton_Click_2" Style="{StaticResource ModernButtonGereralStyle}"
+                                  IsEnabled="{Binding ElementName=dg_Customer, Path=SelectedItem, Converter={StaticResource NullToEnableConverter}}"
+                                  IconData="{StaticResource NotificationIcon}"/>
+                    <mui:ModernButton Click="ModernButton_Click_1" Visibility="{Binding CanAddGift, Converter={StaticResource CollapseBolleanToVisibilityConverter}}"
                                   Style="{StaticResource ModernButtonGereralStyle}" IconData="{StaticResource SaveIcon}"/>
-                <mui:ModernButton Click="ModernButton_Click_3" Height="38" Style="{StaticResource ModernButtonGereralStyle}" 
+                    <mui:ModernButton Click="ModernButton_Click_3" Height="38" Style="{StaticResource ModernButtonGereralStyle}" 
                                   IsEnabled="{Binding ElementName=dg_Customer, Path=SelectedItem, Converter={StaticResource NullToEnableConverter}}"
                                   IconData="{StaticResource ExpandIcon}"/>
-                <mui:ModernButton Click="AddGiftClicked" Visibility="{Binding CanAddGift, Converter={StaticResource CollapseBolleanToVisibilityConverter}}" Height="38" 
+                    <mui:ModernButton Click="AddGiftClicked" Visibility="{Binding CanAddGift, Converter={StaticResource CollapseBolleanToVisibilityConverter}}" Height="38" 
                                   Style="{StaticResource ModernButtonGereralStyle}" 
                                   IsEnabled="{Binding ElementName=dg_Customer, Path=SelectedItem, Converter={StaticResource NullToEnableConverter}}" 
                                   IconData="{StaticResource GiftIcon}"/>
-                <mui:ModernButton Click="ModernButton_Click_2" Style="{StaticResource ModernButtonGereralStyle}"
-                                  IsEnabled="{Binding ElementName=dg_Customer, Path=SelectedItem, Converter={StaticResource NullToEnableConverter}}"
-                                  IconData="{StaticResource NotificationIcon}"/>
-            </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
             <ProgressBar Visibility="{Binding SearchProgresBarVisibility}" IsIndeterminate="True"/>
         </StackPanel>
         <CheckBox Name="CanEditRows" Visibility="Collapsed"/>

@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeviceInfo.cs" />
+    <Compile Include="LibSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToastNotificationHelper.cs" />
     <EmbeddedResource Include="Properties\RawNotification.DotnetCoreBL.rd.xml" />

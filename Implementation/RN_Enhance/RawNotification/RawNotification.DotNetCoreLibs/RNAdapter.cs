@@ -105,7 +105,7 @@ namespace RawNotification.DotNetCoreBL
                 {
                     return await RNAdapterCore.UpdateDeviceInfoAsync();
                 }
-                else;
+                else
                 {
                     return await RNAdapterCore.SendDeviceInfoToServerAsync();
                 }
